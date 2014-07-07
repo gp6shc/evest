@@ -1,0 +1,6 @@
+AuthType Basic
+AuthName " Statistics"
+AuthName "evestflorida.com Statistics"
+AuthUserFile /var/chroot/home/content/68/10899668/html/stats/.statspwd
+Require valid-user
+DirectoryIndex index.html

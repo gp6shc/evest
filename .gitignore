@@ -1,0 +1,5 @@
+#Untracked Files
+
+wp-config.php
+.sass-cache
+.DS_Store
