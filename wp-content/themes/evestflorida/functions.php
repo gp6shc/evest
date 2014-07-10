@@ -152,18 +152,15 @@ function customize_output($results , $arg, $id, $getdata ){
 		if ( $query->have_posts() ) {
 			while ( $query->have_posts() ) {
 				$query->the_post();
-                                echo  '<li>'.get_permalink().'</li>';
+					echo  '<header><h1><a href="'.get_permalink().'">'.get_the_title().'</a></h1></header>';                       
 			}
                         echo  $apiclass->ajax_pagination($arg['paged'],$query->max_num_pages, 4, $id, $getdata);
 		 } else {
-					 echo  'no post found';
+					 echo  '<h2>No contractors found.</h2>';
 				}
 				/* Restore original Post Data */
 				wp_reset_postdata();
 
 		$results = ob_get_clean();		
 			return $results;
-}
-
-?>
-
+}?>

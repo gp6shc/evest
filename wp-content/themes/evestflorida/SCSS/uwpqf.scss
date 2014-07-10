@@ -9,12 +9,22 @@
 	
 }
 
+#uwpqsf_id:after {
+	content: "";
+	display: table;
+	clear: both;
+}
 
 .uwpqsf_class{
 	width: calc(50% - 45px);
 	display: block;
 	height: auto;
-	float: right;
+}
+
+#uwpqsffrom_860 > div:nth-child(6) {
+	display: block;
+	float: left;
+	margin-top: 37px;
 }
 
 div.tax-check-0 label:nth-child(6) {
@@ -83,12 +93,30 @@ div.tax-check-0 label:nth-child(6) {
 	clear: both;
 	min-height: 359px;
 	transition: height 0.2s ease;
-	margin: 0 45px;
+	margin: 55px 45px 15px 45px;
+	
+	.result {
+		display: inline-block;
+		width: 255px;
+		height: 300px;
+		margin: 10px 15px;
+		border: 1px solid blue;
+		vertical-align: top;
+		overflow: hidden;
+	}
+	
+	img {
+		width: 255px;
+	}
 	
 	h2 {
-		text-align: center;
-		margin-top: 180px;
-		font-size: 28px;
+		font-size: 22px;
 	}
+	
+	a {
+		display: block;
+	}
+	
+	
 }
 

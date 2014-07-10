@@ -277,7 +277,7 @@ if(!class_exists('uwpqsfprocess')){
 		echo $result;
 					
 							
-		}else{ echo 'There is error here';}
+		}else{ echo 'An error occured. Please refresh the page to continue.';}
 	    	die;	
 
   }//end ajax	
