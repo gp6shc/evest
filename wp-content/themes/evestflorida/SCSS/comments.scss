@@ -1,0 +1,348 @@
+
+.back{
+
+	padding: 20px 0 35px 35px;
+
+}
+
+
+
+#commentsbox {
+
+    margin: 0px 0px 0px 25px;
+
+    padding: 0px 10px;
+
+}
+
+
+
+h3#comments {
+
+    font-family: Helvetica, Arial, sans-serif;
+
+    padding: 10px 0px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    margin: 20px 0px 20px 0px;
+
+    color: #000;
+
+}
+
+
+
+ol.commentlist {
+
+    clear: both;
+
+    overflow: hidden;
+
+    list-style: none;
+
+    margin: 0;
+
+}
+
+
+
+ol.commentlist li {
+
+    line-height: 160%;
+
+    margin: 0px 0 20px 0px;
+
+    padding: 10px 10px;
+
+    border: 1px solid #eee;
+
+}
+
+
+
+ol.commentlist li .comment-author a:link,ol.commentlist li .comment-author a:visited {
+
+    color: #333;
+
+    font-weight: 700;
+
+    text-decoration: none!important;
+
+}
+
+
+
+cite.fn {
+
+    color: #eee;
+
+    font-style: normal;
+
+}
+
+
+
+ol.commentlist li .comment-author .avatar {
+
+    float: right;
+
+    border: 1px solid #eee;
+
+    background: #fff;
+
+    padding: 3px;
+
+    margin: 5px 0px 0px 0px;
+
+}
+
+
+
+ol.commentlist li .comment-meta .commentmetadata {
+
+    color: #000;
+
+}
+
+
+
+ol.commentlist li .comment-meta a {
+
+    color: #825E65;
+
+    text-decoration: none!important;
+
+}
+
+
+
+ol.commentlist li p {
+
+    border-top: 1px solid #eee;
+
+    margin: 10px 0px;
+
+    padding: 10px 0px;
+
+}
+
+
+
+ol.commentlist li .reply {
+
+    margin-top: 10px;
+
+}
+
+
+
+ol.commentlist li .reply a {
+
+    background: #825E65;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    padding: 3px 10px;
+
+    -webkit-border-radius: 3px;
+
+    -moz-border-radius: 3px;
+
+    border-radius: 3px;
+
+    font-size: 12px;
+
+}
+
+
+
+ol.commentlist li ul.children {
+
+    list-style: none;
+
+    text-indent: 0;
+
+    margin: 1em 0 0;
+
+}
+
+
+
+.comment-nav {
+
+    height: 20px;
+
+    padding: 5px;
+
+}
+
+
+
+.comment-nav a:link,.comment-nav a:visited {
+
+    color: #f15755;
+
+}
+
+
+
+#respond {
+
+    margin: 10px 0;
+
+    padding: 0;
+
+}
+
+
+
+#respond h3 {
+
+    font-size: 14px;
+
+    font-weight: 400;
+
+    color: #444;
+
+    padding: 5px 0 0;
+
+}
+
+
+
+#commentform {
+
+    padding: 10px 0;
+
+}
+
+
+
+#commentform a {
+
+    color: #825E65;
+
+}
+
+
+
+#commentform p {
+
+    color: #825E65;
+
+    margin: 5px 0;
+
+}
+
+
+
+#respond label {
+
+    display: block;
+
+    color: #82401c;
+
+    padding: 5px 0;
+
+}
+
+
+
+#respond input {
+
+    background: #eee;
+
+    border: 1px solid #D3AC76;
+
+    color: #7F5E34;
+
+    margin: 0 10px 10px 0;
+
+    padding: 5px;
+
+}
+
+
+
+#commentform input {
+
+    width: 50%;
+
+}
+
+
+
+#respond input#commentSubmit {
+
+    width: 100px;
+
+    background: #593A40;
+
+    color: #fff;
+
+    cursor: pointer;
+
+    margin: 10px 0;
+
+    padding: 5px 10px;
+
+    border: 1px solid #442C30;
+
+    -webkit-border-radius: 3px;
+
+    -moz-border-radius: 3px;
+
+    border-radius: 3px;
+
+}
+
+
+
+textarea#comment {
+
+    background: #fafafa;
+
+    border: 1px solid #e7e7e7;
+
+    width: 70%;
+
+    color: #333;
+
+    margin: 20px 0 0;
+
+    padding: 10px 10px;
+
+}
+
+
+
+ol.commentlist li .comment-author,ol.commentlist li .comment-author .fn {
+
+    color: #333;
+
+}
+
+
+
+ol.commentlist li .comment-meta,#respond label small {
+
+    font-size: 10px;
+
+}
+
+
+
+ol.commentlist li ul.children li.depth-2,ol.commentlist li ul.children li.depth-3,ol.commentlist li ul.children li.depth-4,ol.commentlist li ul.children li.depth-5 {
+
+    margin: 0 0 0 50px;
+
+}	
+
+	
+
+

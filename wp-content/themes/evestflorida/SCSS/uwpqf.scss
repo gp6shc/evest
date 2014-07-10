@@ -1,0 +1,94 @@
+/*Find a Contractor query filter and display */
+
+/*the ajax loading icon*/
+.umloading {
+	width:100%;
+	height:44px;
+	margin-top: 180px;
+	background:rgba(255, 255, 255, 0.8) url('ajax_loader.gif') no-repeat 50% 50%;
+	
+}
+
+
+.uwpqsf_class{
+	width: calc(50% - 45px);
+	display: block;
+	height: auto;
+	float: right;
+}
+
+div.tax-check-0 label:nth-child(6) {
+	display: none;
+}
+
+.tax-check-0 {
+	float: left;
+	margin-left: 45px;
+}
+
+.tax-check-1 {
+	float: right;
+	margin-right: 45px;
+}
+
+.togglecheck {
+	
+	span {
+		display: block;
+		font-size: 18px;
+		font-weight: 700;
+		color: #219875;
+	}
+	
+	label {
+		float: left;
+	}
+
+	input[type=checkbox] {
+		display:none;
+	}
+	 
+	label {
+		display:inline-block;
+		margin:-1px;
+		padding: 4px 12px;
+		margin-bottom: 0;
+		font-size: 14px;
+		line-height: 20px;
+		color: #333;
+		text-align: center;
+		text-shadow: 0 1px 1px rgba(255,255,255,0.75);
+		vertical-align: middle;
+		cursor: pointer;
+		background-color: #f5f5f5;
+		background-image: linear-gradient(to bottom,#fff,#e6e6e6);
+		background-repeat: repeat-x;
+		border: 1px solid #ccc;
+		border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+		border-bottom-color: #b3b3b3;
+		box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+	}
+	
+	.input-checked {
+		background-image: none;
+		outline: 0;
+		box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+		background-color: #e0e0e0;
+		color: #219875;
+	}
+}
+	 
+
+#test {
+	clear: both;
+	min-height: 359px;
+	transition: height 0.2s ease;
+	margin: 0 45px;
+	
+	h2 {
+		text-align: center;
+		margin-top: 180px;
+		font-size: 28px;
+	}
+}
+
