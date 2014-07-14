@@ -97,7 +97,7 @@ add_action('pre_get_posts', 'block_cat_query' );
 function block_cat_query() {
     global $wp_query;   
     if( is_home() ) {
-        $wp_query->query_vars['cat'] = '-3';
+        $wp_query->query_vars['cat'] = '-3,-17';
     }
 }
 
@@ -105,7 +105,7 @@ function block_cat_query() {
 /* REMOVES CAT ID 3 (SLIDER) FROM CATEGORY SEARCH WIDGET */
 
 function exclude_widget_categories($args){
-$exclude = "3"; // The category ID of the excluding categorie(s), ID 3 = "slider"
+$exclude = "3,17"; // The category ID of the excluding categorie(s), ID 3 = "slider"
 $args["exclude"] = $exclude;
 return $args;
 }
@@ -145,18 +145,64 @@ add_filter('uwpqsf_result_tempt', 'customize_output', '', 4);
 function customize_output($results , $arg, $id, $getdata ){
 	 // The Query
             $apiclass = new uwpqsfprocess();
-             $query = new WP_Query( $arg );
-		ob_start();	$result = '';
+             $query = new WP_Query( $arg ); ?>
+	<div id="results-total">
+		<?php  
+			$numberOfQueries = $query->found_posts;
+			
+			if($numberOfQueries == 1) {?>
+				<h2><?php echo $numberOfQueries; ?> contractor was found:</h2>
+			<?}else{?>
+				<h2><?php echo $numberOfQueries; ?> contractors were found:</h2>
+			<?}
+			
+		?> 
+		
+	</div>
+<?php	ob_start();	$result = '';
 			// The Loop
 
 		if ( $query->have_posts() ) {
 			while ( $query->have_posts() ) {
 				$query->the_post();
-					echo  '<header><h1><a href="'.get_permalink().'">'.get_the_title().'</a></h1></header>';                       
-			}
+			$thumb_id = get_post_thumbnail_id();
+			$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'medium', true);
+			$thumb_url = $thumb_url_array[0];
+			
+			?>
+			<div class="result">
+				<a href="<?php the_permalink() ?>">
+					<div class="contractor-img" style="background-image: url(<?php echo $thumb_url ?>)"></div>
+					<h2><?php the_title() ?></h2>
+					<hr>
+			
+		<?php	$all_the_tags = get_the_tags();
+					foreach($all_the_tags as $this_tag) {
+						if ($this_tag->name == "Renewable Generation" ) { ?>
+
+							<p>Renewable Generation</p>
+
+				<?php 	} else if ($this_tag->name == "Energy Efficiency" ) { ?>
+				
+							<p>Energy Efficiency</p>
+				
+				<?php 	} else if ($this_tag->name == "Energy Audits" ) { ?>
+				
+							<p>Energy Audits</p>
+
+				<?php 	} else if ($this_tag->name == "Wind Resistance" ) { ?>
+				
+							<p>Wind Resistance</p>
+							
+				<?php 	} else {}
+						}?>
+				</a>	
+			</div>
+	<?}
+
                         echo  $apiclass->ajax_pagination($arg['paged'],$query->max_num_pages, 4, $id, $getdata);
 		 } else {
-					 echo  '<h2>No contractors found.</h2>';
+					 echo  '<h1>No contractors found.</h1>';
 				}
 				/* Restore original Post Data */
 				wp_reset_postdata();

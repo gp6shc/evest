@@ -9,6 +9,9 @@
 	
 }
 
+#uwpqsf_id {
+}
+
 #uwpqsf_id:after {
 	content: "";
 	display: table;
@@ -24,7 +27,8 @@
 #uwpqsffrom_860 > div:nth-child(6) {
 	display: block;
 	float: left;
-	margin-top: 37px;
+	margin-top: 45px;
+	color: #555555;
 }
 
 div.tax-check-0 label:nth-child(6) {
@@ -39,6 +43,7 @@ div.tax-check-0 label:nth-child(6) {
 .tax-check-1 {
 	float: right;
 	margin-right: 45px;
+	
 }
 
 .togglecheck {
@@ -60,9 +65,8 @@ div.tax-check-0 label:nth-child(6) {
 	 
 	label {
 		display:inline-block;
-		margin:-1px;
+		margin: 1px -1px;
 		padding: 4px 12px;
-		margin-bottom: 0;
 		font-size: 14px;
 		line-height: 20px;
 		color: #333;
@@ -73,6 +77,7 @@ div.tax-check-0 label:nth-child(6) {
 		background-color: #f5f5f5;
 		background-image: linear-gradient(to bottom,#fff,#e6e6e6);
 		background-repeat: repeat-x;
+		border-radius: 1px;
 		border: 1px solid #ccc;
 		border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
 		border-bottom-color: #b3b3b3;
@@ -89,34 +94,96 @@ div.tax-check-0 label:nth-child(6) {
 }
 	 
 
-#test {
+#results {
 	clear: both;
-	min-height: 359px;
+	
 	transition: height 0.2s ease;
 	margin: 55px 45px 15px 45px;
 	
 	.result {
 		display: inline-block;
-		width: 255px;
+		width: 267px;
 		height: 300px;
-		margin: 10px 15px;
-		border: 1px solid blue;
+		padding: 10px 10px;
 		vertical-align: top;
 		overflow: hidden;
-	}
-	
-	img {
-		width: 255px;
-	}
-	
-	h2 {
-		font-size: 22px;
+		
+		&:hover {
+			background-color: #c5f1e5;
+		}
 	}
 	
 	a {
 		display: block;
+		min-height: 360px;
+		
+	}
+	
+	.contractor-img {
+		height: 175px;
+		background-size: cover;
+	}
+	
+	h1 {
+		text-align: center;	
+	}
+	
+	h2 {
+		font-size: 22px;
+		margin: 10px 0;
+	}
+	
+	hr {
+		 border: 0;
+		 height: 0;
+		 border-top: 1px solid rgba(0, 0, 0, 0.1);
+		 border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+		
 	}
 	
 	
+}
+
+.contractor-entry {
+	
+	img {
+		max-width: 50%;
+		height: auto;
+		float: right;
+		padding: 0 0 45px 45px;
+	}
+	
+	.entry {
+		width: calc(50% - 45px);
+		float: left;
+		margin-bottom: 45px;
+	}
+	
+	hr {
+		 border: 0;
+		 height: 0;
+		 border-top: 1px solid rgba(0, 0, 0, 0.1);
+		 border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+		
+	}
+	
+	#contact {
+		
+		a {
+			width: auto;
+			display: inline-block;
+			background-color: #555555;
+			color: white;
+			font-size: 16px;
+			font-weight: 400;
+			margin: 2px;
+			padding: 5px 11px;
+			border-radius: 7px;
+			
+			&:hover {
+				background-color: #219875;
+			}
+		}
+	}
 }
 
