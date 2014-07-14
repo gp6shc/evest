@@ -176,6 +176,15 @@
 		<div class="shadow bottom"></div>
 	</div>
 	
+	<!-- INDIVIDUAL CONTRACTOR PAGE HEADER -->		
+	<?php elseif ( in_category( 'Contractor' ) ) : ?>
+	<div id="banner" style="background: url('<?php echo home_url( 'wp-content/themes/evestflorida/images/banner_storm.jpg' ); ?>') repeat-x 0 0; max-width:100%; height: auto;">
+		<div class="text">
+			<h2 class="green"><a style="color: white"href="<?php the_permalink()?>/find-a-contractor"><span class="outline">Find a Contractor</span></a></h2>
+		</div>
+		<div class="shadow bottom"></div>
+	</div>
+	
 	<!-- SINGLE NEWS PAGE HEADER -->
 	<?php elseif ( is_single() ) : ?>
 	<div id="banner" style="background: url('<?php echo home_url( 'wp-content/themes/evestflorida/images/banner_build.jpg' ); ?>') repeat-x 0 0; max-width:100%; height: auto;">
