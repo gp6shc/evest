@@ -9,9 +9,6 @@
 	
 }
 
-#uwpqsf_id {
-}
-
 #uwpqsf_id:after {
 	content: "";
 	display: table;
@@ -24,26 +21,42 @@
 	height: auto;
 }
 
-#uwpqsffrom_860 > div:nth-child(6) {
-	display: block;
-	float: left;
-	margin-top: 45px;
-	color: #555555;
-}
 
-div.tax-check-0 label:nth-child(6) {
-	display: none;
-}
 
-.tax-check-0 {
+.tax-select-0 {
 	float: left;
 	margin-left: 45px;
+	
+	span {
+		display: block;
+		font-size: 18px;
+		font-weight: 700;
+		color: #219875;
+	}
 }
 
 .tax-check-1 {
 	float: right;
 	margin-right: 45px;
 	
+}
+
+#uwpqsffrom_860 > div:nth-child(6) {
+	display: block;
+	float: left;
+	margin: 25px 0 0 45px;
+	width: 200px;
+	color: #555555;
+	
+	label {
+		display: block;
+		width: 250px;
+		font-size: 18px;
+		font-weight: 700;
+		color: #219875;
+		text-transform: none;
+	
+	}
 }
 
 .togglecheck {
@@ -96,8 +109,7 @@ div.tax-check-0 label:nth-child(6) {
 
 #results {
 	clear: both;
-	
-	transition: height 0.2s ease;
+	padding-bottom: 70px;
 	margin: 55px 45px 15px 45px;
 	
 	.result {
@@ -141,7 +153,41 @@ div.tax-check-0 label:nth-child(6) {
 		
 	}
 	
+	.wp-pagenavi, .uwpqsfpagi {
+		margin-top: 20px;	
+
+		a {
+			min-height: 0;
+		}
+	}
+}
+
+.upagicurrent {
+	text-decoration: none;
+    background: #219875;
+    border: 1px solid #222;
+    color: #fff;
+    padding: 3px 7px;
+    display: block;
+    text-align: center;
+    float: left;
+    margin-right: 4px;
+}
+
+.upagievent {
+	text-decoration: none;
+    background: #666666;
+    border: 1px solid #222;
+    color: #fff;
+    padding: 3px 7px;
+    display: block;
+    text-align: center;
+    float: left;
+    margin-right: 4px;
 	
+	&:hover {
+		color: white;
+	}
 }
 
 .contractor-entry {
@@ -185,5 +231,13 @@ div.tax-check-0 label:nth-child(6) {
 			}
 		}
 	}
+}
+
+#disclaimer {
+	position: absolute;
+	bottom: 0;
+	width: 870px;
+	padding-bottom: 15px;
+	margin: 0 auto;
 }
 
