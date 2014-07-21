@@ -35,14 +35,30 @@ width: 98% !important;
 
 <div id="results">
 <?php
-	$query = new WP_Query( 'cat=17&posts_per_page=-1');?>
+	// Near copy of customize_output for UWPQSF to replicate its results since no query is sent in first load
+	$custom_query_args = array(
+    	'cat' => 17,
+		'posts_per_page' => 21,
+		'orderby' => 'title',
+		'order' => 'ASC',
+	);
 	
+	$custom_query_args['paged'] = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+	$custom_query = new WP_Query( $custom_query_args );
+	
+	// Pagination fix
+	$temp_query = $wp_query;
+	$wp_query   = NULL;
+	$wp_query   = $custom_query;?>
+
 	<div id="results-total">
 		<?php  
-			$numberOfQueries = $query->found_posts;
+			$numberOfQueries = $custom_query->found_posts;
 			
-			if($numberOfQueries == 1) {?>
+			if ($numberOfQueries == 1) {?>
 				<h2><?php echo $numberOfQueries; ?> contractor was found:</h2>
+			<?}elseif ($numberOfQueries == 0){?>
+				<h2></h2>
 			<?}else{?>
 				<h2><?php echo $numberOfQueries; ?> contractors were found:</h2>
 			<?}
@@ -51,9 +67,9 @@ width: 98% !important;
 		
 	</div>
 	
-<?php	if ( $query->have_posts() ) {
-		while ( $query->have_posts() ) {
-			$query->the_post();
+<?php	if ( $custom_query->have_posts() ) {
+		while ( $custom_query->have_posts() ) {
+			$custom_query->the_post();
 			$thumb_id = get_post_thumbnail_id();
 			$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'medium', true);
 			$thumb_url = $thumb_url_array[0];
@@ -89,7 +105,15 @@ width: 98% !important;
 				</a>	
 			</div>
 	<?}
-	}?>		
+	}
+wp_reset_postdata();
+
+wp_pagenavi();
+
+// Reset main query object
+$wp_query = NULL;
+$wp_query = $temp_query;
+?>
 
 </div>
 
@@ -107,6 +131,14 @@ width: 98% !important;
 		for (var i = 0; i < inputButton.length; i++) {
 			inputButton[i].addEventListener('mousedown', addClassChecked, false);
 		}
+		
+		var contractorOptions = document.getElementById('tdp-0').options;
+		
+		for (var i = 0; i < contractorOptions.length; i++) {
+			if (contractorOptions[i].value === 'contractor') {
+				contractorOptions[i].parentElement.removeChild(contractorOptions[i]);
+			}
+		};
 		
 </script>
 

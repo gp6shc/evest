@@ -119,7 +119,7 @@ function getpagenavi(){
 	<?php if(function_exists('wp_pagenavi')) : ?>
 	<?php wp_pagenavi() ?>
 	<?php else : ?>
-	        <div class="alignleft"><?php next_posts_link(__('&laquo; Older Entries','web2feeel')) ?></div>
+	        <div class="alignleft"><?php next_posts_link(__('&laquo; Older Entries','web2feel')) ?></div>
 	        <div class="alignright"><?php previous_posts_link(__('Newer Entries &raquo;','web2feel')) ?></div>
 	        <div class="clear"></div>
 	<?php endif; ?>
@@ -150,18 +150,19 @@ function customize_output($results , $arg, $id, $getdata ){
 		<?php  
 			$numberOfQueries = $query->found_posts;
 			
-			if($numberOfQueries == 1) {?>
+			if ($numberOfQueries == 1) {?>
 				<h2><?php echo $numberOfQueries; ?> contractor was found:</h2>
+			<?}elseif ($numberOfQueries == 0){?>
+				<h2></h2>
 			<?}else{?>
 				<h2><?php echo $numberOfQueries; ?> contractors were found:</h2>
 			<?}
 			
 		?> 
-		
 	</div>
-<?php	ob_start();	$result = '';
-			// The Loop
 
+<?php	ob_start();	$result = '';
+	// The Loop
 		if ( $query->have_posts() ) {
 			while ( $query->have_posts() ) {
 				$query->the_post();
