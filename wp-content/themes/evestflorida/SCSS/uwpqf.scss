@@ -115,7 +115,7 @@
 	.result {
 		display: inline-block;
 		width: 267px;
-		height: 300px;
+		min-height: 400px;
 		padding: 10px 10px;
 		vertical-align: top;
 		overflow: hidden;
@@ -125,10 +125,22 @@
 		}
 	}
 	
+	p {
+		line-height: 58px;
+		display: block;
+		float: left;
+		padding-left: 10px;
+	}
+	
+	img {
+		float: left;
+		clear: left;
+		margin: 5px 0;
+	}
+	
 	a {
 		display: block;
 		min-height: 360px;
-		
 	}
 	
 	.contractor-img {

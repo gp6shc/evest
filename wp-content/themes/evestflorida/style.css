@@ -548,8 +548,10 @@ button.applynow:hover { cursor: pointer; }
 .togglecheck .input-checked { background-image: none; outline: 0; -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05); box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05); background-color: #e0e0e0; color: #219875; }
 
 #results { clear: both; padding-bottom: 70px; margin: 55px 45px 15px 45px; }
-#results .result { display: inline-block; width: 267px; height: 300px; padding: 10px 10px; vertical-align: top; overflow: hidden; }
+#results .result { display: inline-block; width: 267px; min-height: 400px; padding: 10px 10px; vertical-align: top; overflow: hidden; }
 #results .result:hover { background-color: #c5f1e5; }
+#results p { line-height: 58px; display: block; float: left; padding-left: 10px; }
+#results img { float: left; clear: left; margin: 5px 0; }
 #results a { display: block; min-height: 360px; }
 #results .contractor-img { height: 175px; -webkit-background-size: cover cover; background-size: cover; }
 #results h1 { text-align: center; }
