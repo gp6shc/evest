@@ -68,70 +68,24 @@ width: 98% !important;
 	</div>
 	
 <?php	if ( $custom_query->have_posts() ) {
-		while ( $custom_query->have_posts() ) {
-			$custom_query->the_post();
-			
-			$thumb_id = get_post_thumbnail_id();
-			$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'medium', true);
-			$thumb_url = $thumb_url_array[0];
-			
-			?>
+			while ( $custom_query->have_posts() ) {
+				$custom_query->the_post();
+				
+				$thumb_id = get_post_thumbnail_id();
+				$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'medium', true);
+				$thumb_url = $thumb_url_array[0];
+				
+				?>
 			
 			<div class="result">
 				<a href="<?php the_permalink() ?>">
 					<div class="contractor-img" style="background-image: url(<?php echo $thumb_url ?>)"></div>
 					<h2><?php the_title() ?></h2>
 					<hr>
-			
-		<?php	$all_the_tags = get_the_tags();
-					foreach($all_the_tags as $this_tag) {
-						switch ($this_tag->name) {
-							case "Commercial": ?>
-								<img src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Commercial_1.png"/>
-								<p><?php echo $this_tag->name?></p>
-								
-							<?php break;
-							
-							case "Energy": ?>				
-								<img src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Energy_1.png"/>
-								<p><?php echo $this_tag->name?></p>
-								
-							<?php break;
-							
-							case "HVAC": ?>
-								<img src="<?php bloginfo('stylesheet_directory')?>/images/Evest_HVAC_1.png"/>
-								<p><?php echo $this_tag->name?></p>
-								
-							<?php break;
-							
-							case "Residential": ?>
-								<img src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Residential_1.png"/>
-								<p><?php echo $this_tag->name?></p>
-								
-							<?php break;
-							
-							case "Solar": ?>
-								<img src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Solar_1.png"/>
-								<p><?php echo $this_tag->name?></p>
-								
-							<?php break;
-							
-							case "Wind Mitigation": ?>
-								<img src="<?php bloginfo('stylesheet_directory')?>/images/Evest_WindMitigation_1.png"/>
-								<p><?php echo $this_tag->name?></p>
-								
-							<?php break;
-								
-							default: ?>
-								<img src="<?php bloginfo('stylesheet_directory')?>/images/Evest_WindMitigation_2.png"/>
-								<p><?php echo $this_tag->name?></p>
-								
-							<?}
-						}?>
-
+					<?php the_post_tags(); ?>
 				</a>	
 			</div>
-	<?  }
+		<?  }
 		}
 
 wp_reset_postdata();

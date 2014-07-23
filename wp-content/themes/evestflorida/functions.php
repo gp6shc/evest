@@ -139,45 +139,10 @@ function getpagenavi(){
 
 	add_action( 'load-themes.php', 'custom_flush_rewrite_rules' );
 
-//Taxonomy Filter Custom Output
+//Get all the tags from a post and list them with their matching icon
 
-add_filter('uwpqsf_result_tempt', 'customize_output', '', 4);
-function customize_output($results , $arg, $id, $getdata ){
-	 // The Query
-            $apiclass = new uwpqsfprocess();
-             $query = new WP_Query( $arg ); ?>
-	<div id="results-total">
-		<?php  
-			$numberOfQueries = $query->found_posts;
-			
-			if ($numberOfQueries == 1) {?>
-				<h2><?php echo $numberOfQueries; ?> contractor was found:</h2>
-			<?}elseif ($numberOfQueries == 0){?>
-				<h2></h2>
-			<?}else{?>
-				<h2><?php echo $numberOfQueries; ?> contractors were found:</h2>
-			<?}
-			
-		?> 
-	</div>
-
-<?php	ob_start();	$result = '';
-	// The Loop
-		if ( $query->have_posts() ) {
-			while ( $query->have_posts() ) {
-				$query->the_post();
-			$thumb_id = get_post_thumbnail_id();
-			$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'medium', true);
-			$thumb_url = $thumb_url_array[0];
-			
-			?>
-			<div class="result">
-				<a href="<?php the_permalink() ?>">
-					<div class="contractor-img" style="background-image: url(<?php echo $thumb_url ?>)"></div>
-					<h2><?php the_title() ?></h2>
-					<hr>
-			
-		<?php	$all_the_tags = get_the_tags();
+function the_post_tags() {
+			$all_the_tags = get_the_tags();
 					foreach($all_the_tags as $this_tag) {
 						switch ($this_tag->name) {
 							case "Commercial": ?>
@@ -221,7 +186,47 @@ function customize_output($results , $arg, $id, $getdata ){
 								<p><?php echo $this_tag->name?></p>
 								
 							<?}
-						}?>
+						}
+				}
+
+//Taxonomy Filter Custom Output
+
+add_filter('uwpqsf_result_tempt', 'customize_output', '', 4);
+function customize_output($results , $arg, $id, $getdata ){
+	 // The Query
+            $apiclass = new uwpqsfprocess();
+             $query = new WP_Query( $arg ); ?>
+	<div id="results-total">
+		<?php  
+			$numberOfQueries = $query->found_posts;
+			
+			if ($numberOfQueries == 1) {?>
+				<h2><?php echo $numberOfQueries; ?> contractor was found:</h2>
+			<?}elseif ($numberOfQueries == 0){?>
+				<h2></h2>
+			<?}else{?>
+				<h2><?php echo $numberOfQueries; ?> contractors were found:</h2>
+			<?}
+			
+		?> 
+	</div>
+
+<?php	ob_start();	$result = '';
+	// The Loop
+		if ( $query->have_posts() ) {
+			while ( $query->have_posts() ) {
+				$query->the_post();
+			$thumb_id = get_post_thumbnail_id();
+			$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'medium', true);
+			$thumb_url = $thumb_url_array[0];
+			
+			?>
+			<div class="result">
+				<a href="<?php the_permalink() ?>">
+					<div class="contractor-img" style="background-image: url(<?php echo $thumb_url ?>)"></div>
+					<h2><?php the_title() ?></h2>
+					<hr>
+					<?php the_post_tags()?>
 				</a>	
 			</div>
 	<?}
