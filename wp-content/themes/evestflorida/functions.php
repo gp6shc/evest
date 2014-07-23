@@ -144,46 +144,64 @@ function getpagenavi(){
 function the_post_tags() {
 			$all_the_tags = get_the_tags();
 					foreach($all_the_tags as $this_tag) {
+						if( $this_tag->name == "Wind Mitigation" ) {
+							$this_tag->name = "Wind";
+						}
+						
 						switch ($this_tag->name) {
 							case "Commercial": ?>
-								<img src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Commercial_1.png"/>
-								<p><?php echo $this_tag->name?></p>
+								<div class="tag-unit">
+									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Commercial_1.png"/>
+									<p><?php echo $this_tag->name?></p>
+								</div>
 								
 							<?php break;
 							
 							case "Energy": ?>				
-								<img src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Energy_1.png"/>
-								<p><?php echo $this_tag->name?></p>
+								<div class="tag-unit">
+									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Energy_1.png"/>
+									<p><?php echo $this_tag->name?></p>
+								</div>
 								
 							<?php break;
 							
 							case "HVAC": ?>
-								<img src="<?php bloginfo('stylesheet_directory')?>/images/Evest_HVAC_1.png"/>
-								<p><?php echo $this_tag->name?></p>
+								<div class="tag-unit">
+									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_HVAC_1.png"/>
+									<p><?php echo $this_tag->name?></p>
+								</div>
 								
 							<?php break;
 							
 							case "Residential": ?>
-								<img src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Residential_1.png"/>
-								<p><?php echo $this_tag->name?></p>
+								<div class="tag-unit">
+									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Residential_1.png"/>
+									<p><?php echo $this_tag->name?></p>
+								</div>
 								
 							<?php break;
 							
 							case "Solar": ?>
-								<img src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Solar_1.png"/>
-								<p><?php echo $this_tag->name?></p>
+								<div class="tag-unit">
+									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Solar_1.png"/>
+									<p><?php echo $this_tag->name?></p>
+								</div>
 								
 							<?php break;
 							
-							case "Wind Mitigation": ?>
-								<img src="<?php bloginfo('stylesheet_directory')?>/images/Evest_WindMitigation_1.png"/>
-								<p><?php echo $this_tag->name?></p>
+							case "Wind": ?>
+								<div class="tag-unit">
+									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_WindMitigation_1.png"/>
+									<p><?php echo $this_tag->name?></p>
+								</div>
 								
 							<?php break;
 								
 							default: ?>
-								<img src="<?php bloginfo('stylesheet_directory')?>/images/Evest_WindMitigation_2.png"/>
-								<p><?php echo $this_tag->name?></p>
+								<div class="tag-unit">
+									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Default_1.png"/>
+									<p><?php echo $this_tag->name?></p>
+								</div>
 								
 							<?}
 						}

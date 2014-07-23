@@ -10,7 +10,17 @@
 				<div class="post" id="post-<?php the_ID(); ?>">
 					<div class="contractor-entry">
 						<h1><?php the_title()?></h1>
-						<?php the_post_thumbnail('full')?>
+						<h3><?php 
+							$category = get_the_category();
+							$last_category = end($category);
+							echo $last_category->cat_name . " County";
+						?></h3>
+						<div class="contractor-right">
+							<?php 
+								the_post_thumbnail('full');
+								the_post_tags();
+							?>
+						</div>
 						<div class="entry">
 							<?php the_content(); ?>
 						</div>
