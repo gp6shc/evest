@@ -26,6 +26,7 @@
 .tax-select-0 {
 	float: left;
 	margin-left: 45px;
+	margin-bottom: 25px;
 	
 	span {
 		display: block;
@@ -41,22 +42,25 @@
 	
 }
 
+#uwpqsf_id_key {
+	margin: 25px 25px 0 45px;
+}
+
+.-keyword {
+	display: block;
+	width: 300px;
+	margin: 25px 25px -25px 45px;
+	font-size: 18px;
+	font-weight: 700;
+	color: #219875;
+	text-transform: none;
+}
+
 #uwpqsffrom_860 > div:nth-child(6) {
 	display: block;
-	float: left;
-	margin: 25px 0 0 45px;
 	width: 200px;
 	color: #555555;
 	
-	label {
-		display: block;
-		width: 300px;
-		font-size: 18px;
-		font-weight: 700;
-		color: #219875;
-		text-transform: none;
-	
-	}
 }
 
 .togglecheck {
