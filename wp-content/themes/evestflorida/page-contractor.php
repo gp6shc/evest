@@ -100,28 +100,32 @@ $wp_query = $temp_query;
 </div>
 
 <script>
-		var inputButton = document.getElementsByTagName('label');
 		
-		function addClassChecked(i) {
-			if(this.classList.contains('-keyword')) {
-				return;
-			}else{
-				this.classList.toggle("input-checked");
-			}	
-		}
-		
-		for (var i = 0; i < inputButton.length; i++) {
-			inputButton[i].addEventListener('mousedown', addClassChecked, false);
-		}
-		
-		var contractorOptions = document.getElementById('tdp-0').options;
-		
+jQuery(document).ready(
+	function($) {
+		$('div.uwpqsf_class label').mouseup(
+			function(e){ 
+				jQuery(this).toggleClass('input-checked'); 
+			});
+	});
+/*	var inputButton = document.getElementsByTagName('label');
+function addClassChecked(i) {
+if(this.classList.contains('-keyword')) {
+return;
+}else{
+this.classList.toggle("input-checked");
+}
+}
+for (var i = 0; i < inputButton.length; i++) {
+inputButton[i].addEventListener('mousedown', addClassChecked, false);
+}
+*/
+	var contractorOptions = document.getElementById('tdp-0').options;
 		for (var i = 0; i < contractorOptions.length; i++) {
 			if (contractorOptions[i].value === 'contractor') {
 				contractorOptions[i].parentElement.removeChild(contractorOptions[i]);
 			}
 		};
-		
 </script>
 
 <?php get_sidebar(); ?>
