@@ -44,11 +44,12 @@
 
 #uwpqsf_id_key {
 	margin: 25px 25px 0 45px;
+	padding-right: 90px;
 }
 
 .-keyword {
 	display: block;
-	width: 300px;
+	width: 400px;
 	margin: 25px 25px -25px 45px;
 	font-size: 18px;
 	font-weight: 700;
@@ -138,7 +139,7 @@
 	p {
 		line-height: 58px;
 		display: inline-block;
-		padding: 0 19px 0 10px;
+		padding: 0 0 0 6px;
 		color: #555555;
 	}
 	
@@ -159,6 +160,7 @@
 	h2 {
 		font-size: 22px;
 		margin: 10px 0;
+		height: 52px;
 	}
 	
 	hr {
@@ -212,7 +214,8 @@
 	float: right;
 	padding: 0 0 45px 20px;
 	
-	img {
+	&>img {
+		width: inherit;
 		max-width: 100%;
 		height: auto;
 	}
@@ -220,8 +223,11 @@
 	p {
 		line-height: 58px;
 		display: inline-block;
-		padding: 0 25px 0 10px;
-		font-weight: 700;
+		padding: 0 0 0 6px;
+	}
+	
+	.tag-unit {
+		margin-left: 8px;
 	}
 }
 
@@ -232,6 +238,7 @@
 
 .tag-unit {
 	float: left;
+	width: 130px;
 }
 
 .contractor-entry {
