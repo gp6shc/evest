@@ -38,7 +38,7 @@ width: 98% !important;
 	// Near copy of customize_output for UWPQSF to replicate its results since no query is sent in first load
 	$custom_query_args = array(
     	'cat' => 17,
-		'posts_per_page' => 5,
+		'posts_per_page' => 24,
 		'orderby' => 'title',
 		'order' => 'ASC',
 	);
