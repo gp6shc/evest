@@ -12,8 +12,20 @@
 						<h1><?php the_title()?></h1>
 						<h3><?php 
 							$category = get_the_category();
-							$last_category = end($category);
-							echo $last_category->cat_name . " County";
+							$length = count($category);
+							$i = 0;
+							foreach($category as $aCat) {
+								if ($aCat->cat_name === "Contractor") {
+									echo "";
+								}elseif ($length <= 2){
+									echo $aCat->cat_name . " County";
+								}elseif ($i === $length - 1){
+									echo "and " . $aCat->cat_name . " Counties";
+								}else{
+									echo $aCat->cat_name . ", ";
+								}
+								$i++;
+							}
 						?></h3>
 						<div class="contractor-right">
 							<?php 
