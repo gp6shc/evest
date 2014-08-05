@@ -199,7 +199,7 @@ function the_post_tags() {
 								
 							default: ?>
 								<div class="tag-unit">
-									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Default_1.png"/>
+									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_WindMitigation_2.png"/>
 									<p><?php echo $this_tag->name?></p>
 								</div>
 								
