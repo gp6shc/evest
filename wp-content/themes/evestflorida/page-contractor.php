@@ -78,7 +78,7 @@ width: 98% !important;
 				?>
 			
 			<div class="result">
-				<a href="<?php the_permalink() ?>">
+				<a class="clearfix" href="<?php the_permalink() ?>">
 					<div class="contractor-img" style="background-image: url(<?php echo $thumb_url ?>)"></div>
 					<h2><?php the_title() ?></h2>
 					<hr>

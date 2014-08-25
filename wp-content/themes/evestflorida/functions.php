@@ -144,23 +144,22 @@ function getpagenavi(){
 function the_post_tags() {
 			$all_the_tags = get_the_tags();
 					foreach($all_the_tags as $this_tag) {
-						if( $this_tag->name == "Wind Mitigation" ) {
-							$this_tag->name = "Wind";
-						}
-						
 						switch ($this_tag->name) {
+							case "Renewable Generation":
 							case "Commercial": ?>
 								<div class="tag-unit">
 									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Commercial_1.png"/>
-									<p><?php echo $this_tag->name?></p>
+									<div class="tag-contain"><p><?php echo $this_tag->name?></p></div>
 								</div>
 								
 							<?php break;
 							
+							case "Energy Audits":
+							case "Energy Efficiency":
 							case "Energy": ?>				
 								<div class="tag-unit">
 									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Energy_1.png"/>
-									<p><?php echo $this_tag->name?></p>
+									<div class="tag-contain"><p><?php echo $this_tag->name?></p></div>
 								</div>
 								
 							<?php break;
@@ -168,7 +167,7 @@ function the_post_tags() {
 							case "HVAC": ?>
 								<div class="tag-unit">
 									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_HVAC_1.png"/>
-									<p><?php echo $this_tag->name?></p>
+									<div class="tag-contain"><p><?php echo $this_tag->name?></p></div>
 								</div>
 								
 							<?php break;
@@ -176,7 +175,7 @@ function the_post_tags() {
 							case "Residential": ?>
 								<div class="tag-unit">
 									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Residential_1.png"/>
-									<p><?php echo $this_tag->name?></p>
+									<div class="tag-contain"><p><?php echo $this_tag->name?></p></div>
 								</div>
 								
 							<?php break;
@@ -184,23 +183,25 @@ function the_post_tags() {
 							case "Solar": ?>
 								<div class="tag-unit">
 									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Solar_1.png"/>
-									<p><?php echo $this_tag->name?></p>
+									<div class="tag-contain"><p><?php echo $this_tag->name?></p></div>
 								</div>
 								
 							<?php break;
 							
-							case "Wind": ?>
+							case "Wind":
+							case "Wind Resistance":
+							case "Wind Mitigation": ?>
 								<div class="tag-unit">
 									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_WindMitigation_1.png"/>
-									<p><?php echo $this_tag->name?></p>
+									<div class="tag-contain"><p><?php echo $this_tag->name?></p></div>
 								</div>
 								
 							<?php break;
 								
 							default: ?>
 								<div class="tag-unit">
-									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_WindMitigation_2.png"/>
-									<p><?php echo $this_tag->name?></p>
+									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_WindMitigation_1.png"/>
+									<div class="tag-contain"><p><?php echo $this_tag->name?></p></div>
 								</div>
 								
 							<?}
@@ -240,7 +241,7 @@ function customize_output($results , $arg, $id, $getdata ){
 			
 			?>
 			<div class="result">
-				<a href="<?php the_permalink() ?>">
+				<a class="clearfix" href="<?php the_permalink() ?>">
 					<div class="contractor-img" style="background-image: url(<?php echo $thumb_url ?>)"></div>
 					<h2><?php the_title() ?></h2>
 					<hr>

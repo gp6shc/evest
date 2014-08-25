@@ -30,6 +30,7 @@
 						<div class="contractor-right">
 							<?php 
 								the_post_thumbnail('full');
+								?><hr><?php
 								the_post_tags();
 							?>
 						</div>

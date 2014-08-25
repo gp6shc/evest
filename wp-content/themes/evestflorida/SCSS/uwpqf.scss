@@ -126,31 +126,41 @@
 	.result {
 		display: inline-block;
 		width: 267px;
-		min-height: 400px;
 		padding: 10px 10px;
+		margin-bottom: 30px;
 		vertical-align: top;
 		overflow: hidden;
+		transition: background-color 0.3s ease;
+		
 		
 		&:hover {
 			background-color: #c5f1e5;
 		}
 	}
+	.tag-contain {
+		display: table;
+		height: 58px;
+	}
 	
 	p {
-		line-height: 58px;
-		display: inline-block;
+		display: table-cell;
+		vertical-align: middle;
+		line-height: 1;
 		padding: 0 0 0 6px;
 		color: #555555;
+		width: 75px;
 	}
 	
 	a {
 		display: block;
-		min-height: 400px;
 	}
 	
 	.contractor-img {
 		height: 175px;
-		background-size: cover;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center center;
+
 	}
 	
 	h1 {
@@ -228,6 +238,20 @@
 	
 	.tag-unit {
 		margin-left: 8px;
+	}
+	
+	.tag-contain {
+		display: table;
+		height: 58px;
+	}
+	
+	p {
+		display: table-cell;
+		vertical-align: middle;
+		line-height: 1;
+		padding: 0 0 0 6px;
+		color: #555555;
+		width: 75px;
 	}
 }
 
