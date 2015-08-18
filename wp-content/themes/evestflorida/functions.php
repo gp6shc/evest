@@ -4,7 +4,7 @@
 //include ( 'metabox.php' );
 //include ( 'cpt.php' );
 //include ( 'guide.php' );
-//include ('paceify/webhook.php');
+
 
 /* SIDEBARS */
 if ( function_exists('register_sidebar') )
@@ -46,7 +46,7 @@ if ( function_exists( 'add_theme_support' ) ) { // Added in 2.9
 	add_image_size( 'top_feature', 960, 500, true );
 	add_image_size( 'index_box', 420, 280, true );
 	add_image_size( 'index_wide', 420, 180, true );
-	add_image_size( 'news', 550, 300, true );
+	add_image_size( 'news', 420, 180, true );
 }
 
 /* CUSTOM EXCERPTS */
@@ -142,81 +142,71 @@ function getpagenavi(){
 //Get all the tags from a post and list them with their matching icon
 
 function the_post_tags() {
-			$all_the_tags = get_the_tags();
-					foreach($all_the_tags as $this_tag) {
-						switch ($this_tag->name) {
-							case "Renewable Generation":
-							case "Commercial": ?>
-								<div class="tag-unit">
-									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Commercial_1.png"/>
-									<div class="tag-contain"><p><?php echo $this_tag->name?></p></div>
-								</div>
-								
-							<?php break;
-							
-							case "Energy Efficiency": ?>				
-								<div class="tag-unit">
-									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Energy_1.png"/>
-									<div class="tag-contain"><p><?php echo $this_tag->name?></p></div>
-								</div>
-								
-							<?php break;
-							
-							case "Energy Audits": ?>
-								<div class="tag-unit">
-									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Audit_1.png"/>
-									<div class="tag-contain"><p><?php echo $this_tag->name?></p></div>
-								</div>
-								
-							<?php break;
-							
-							case "Residential": ?>
-								<div class="tag-unit">
-									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Residential_1.png"/>
-									<div class="tag-contain"><p><?php echo $this_tag->name?></p></div>
-								</div>
-								
-							<?php break;
-							
-							case "Renewables": ?>
-								<div class="tag-unit">
-									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Solar_1.png"/>
-									<div class="tag-contain"><p><?php echo $this_tag->name?></p></div>
-								</div>
+	$all_the_tags = get_the_tags();
+	
+	foreach($all_the_tags as $this_tag) {
+		$current_tag = $this_tag->name;
+		$style_dir = bloginfo('stylesheet_directory');
+		switch ($current_tag) {
+			case "Renewable Generation":
+			case "Commercial":
+				echo	"<div class=\"tag-unit\">
+							<img class=\"tag-image\" src=\"$style_dir/images/Evest_Commercial_1.png\"/>
+							<div class=\"tag-contain\"><p>$current_tag</p></div>
+						</div>";
+				break;
 
-							<?php break;
-
-							case "Industrial": ?>
-								<div class="tag-unit">
-									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Industrial_1.png"/>
-									<div class="tag-contain"><p><?php echo $this_tag->name?></p></div>
-								</div>
-								
-							<?php break;
-							
-							case "Wind":
-							case "Wind Resistance":
-							case "Wind Mitigation": ?>
-								<div class="tag-unit">
-									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_WindMitigation_1.png"/>
-									<div class="tag-contain"><p><?php echo $this_tag->name?></p></div>
-								</div>
-								
-							<?php break;
-								
-							default: ?>
-								<div class="tag-unit">
-									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_WindMitigation_1.png"/>
-									<div class="tag-contain"><p><?php echo $this_tag->name?></p></div>
-								</div>
-								
-							<?}
-						}
-				}
+			case "Energy Audits":
+			case "Energy Efficiency":
+			case "Energy":
+				echo	"<div class=\"tag-unit\">
+							<img class=\"tag-image\" src=\"$style_dir/images/Evest_Energy_1.png\"/>
+							<div class=\"tag-contain\"><p>$current_tag</p></div>
+						</div>";
+				break;
+			
+			case "HVAC":
+				echo	"<div class=\"tag-unit\">
+							<img class=\"tag-image\" src=\"$style_dir/images/Evest_HVAC_1.png\"/>
+							<div class=\"tag-contain\"><p>$current_tag</p></div>
+						</div>";
+				break;
+			
+			case "Residential":
+				echo	"<div class=\"tag-unit\">
+							<img class=\"tag-image\" src=\"$style_dir/images/Evest_Residential_1.png\"/>
+							<div class=\"tag-contain\"><p>$current_tag</p></div>
+						</div>";
+				break;
+			
+			case "Solar":
+				echo	"<div class=\"tag-unit\">
+							<img class=\"tag-image\" src=\"$style_dir/images/Evest_Solar_1.png\"/>
+							<div class=\"tag-contain\"><p>$current_tag</p></div>
+						</div>";
+				break;
+			
+			case "Wind":
+			case "Wind Resistance":
+			case "Wind Mitigation":
+				echo	"<div class=\"tag-unit\">
+							<img class=\"tag-image\" src=\"$style_dir/images/Evest_WindMitigation_1.png\"/>
+							<div class=\"tag-contain\"><p>$current_tag</p></div>
+						</div>";
+				break;
+				
+			default:
+				echo	"<div class=\"tag-unit\">
+							<img class=\"tag-image\" src=\"$style_dir/images/Evest_WindMitigation_1.png\"/>
+							<div class=\"tag-contain\"><p>$current_tag</p></div>
+						</div>";
+		}
+	}
+}
 
 //Taxonomy Filter Custom Output
-
 add_filter('uwpqsf_result_tempt', 'customize_output', '', 4);
+
 function customize_output($results , $arg, $id, $getdata ){
 	 // The Query
             $apiclass = new uwpqsfprocess();
@@ -225,25 +215,23 @@ function customize_output($results , $arg, $id, $getdata ){
 		<?php  
 			$numberOfQueries = $query->found_posts;
 			
-			if ($numberOfQueries == 1) {?>
+			if ($numberOfQueries == 1) : ?>
 				<h2><?php echo $numberOfQueries; ?> contractor was found:</h2>
-			<?}elseif ($numberOfQueries == 0){?>
+			<?php elseif ($numberOfQueries == 0): ?>
 				<h2></h2>
-			<?}else{?>
+			<?php else: ?>
 				<h2><?php echo $numberOfQueries; ?> contractors were found:</h2>
-			<?}
-			
-		?> 
+			<?php endif; ?>
 	</div>
 
 <?php	ob_start();	$result = '';
 	// The Loop
-		if ( $query->have_posts() ) {
-			while ( $query->have_posts() ) {
+		if ( $query->have_posts() ) :
+			while ( $query->have_posts() ) :
 				$query->the_post();
-			$thumb_id = get_post_thumbnail_id();
-			$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'medium', true);
-			$thumb_url = $thumb_url_array[0];
+				$thumb_id = get_post_thumbnail_id();
+				$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'medium', true);
+				$thumb_url = $thumb_url_array[0];
 			
 			?>
 			<div class="result">
@@ -254,17 +242,16 @@ function customize_output($results , $arg, $id, $getdata ){
 					<?php the_post_tags()?>
 				</a>	
 			</div>
-	<?}
+		<?php endwhile;
+		echo  $apiclass->ajax_pagination($arg['paged'],$query->max_num_pages, 10, $id, $getdata);
+		else:
+			echo  '<h1>No contractors found.</h1>';
+		endif;
 
-                        echo  $apiclass->ajax_pagination($arg['paged'],$query->max_num_pages, 10, $id, $getdata);
-		 } else {
-					 echo  '<h1>No contractors found.</h1>';
-				}
-				/* Restore original Post Data */
-				wp_reset_postdata();
+		wp_reset_postdata();
 
 		$results = ob_get_clean();		
-			return $results;
+		return $results;
 }
 
 /*
