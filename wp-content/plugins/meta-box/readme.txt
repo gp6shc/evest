@@ -3,51 +3,39 @@ Contributors: rilwis, franz-josef-kaiser, Omnicia, funkedgeek, PerWiklander, rua
 Donate link: http://www.deluxeblogtips.com/donate
 Tags: meta-box, custom-fields, custom-field, meta, meta-boxes
 Requires at least: 3.5
-Tested up to: 3.9.1
-Stable tag: 4.3.9
+Tested up to: 4.0
+Stable tag: 4.3.11
+License: GPLv2 or later
 
-Meta Box plugin helps you easily implement multiple meta boxes in editing pages in WordPress. Works with custom post types and various field types.
+Meta Box plugin is a complete tool to create meta box and custom fields in WordPress: lightweight, powerful and easy-to-use.
 
 == Description ==
 
-Meta Box plugin provides an API to easily implement custom meta boxes in editing pages (add new/edit post) in WordPress. It works with custom post types and supports various field types.
+Meta Box plugin provides powerful API to implement custom meta boxes and custom fields in editing pages (add new/edit post) in WordPress. It works with any custom post type and supports lots of field types.
 
-**Features**
+### Features
 
-* Easily registers multiple custom meta boxes for posts, pages or custom post types
+* Easily register multiple custom meta boxes for posts, pages or custom post types
+* Supports a lot of [field types](http://metabox.io/docs/define-fields/)
 * Has built-in hooks which allow you to change the appearance and behavior of meta boxes
-* Easily integrated with themes
+* Easily integrate with themes
 
-**You can also add more features to meta box via [premium extensions](http://premium.deluxeblogtips.com)**.
+### Premium Extensions
 
-**Supported fields**
+- [Meta Box Tooltip](http://metabox.io/plugins/meta-box-tooltip/): Display help information for fields using beautiful tooltips.
+- [Meta Box Show Hide (Javascript)](http://metabox.io/plugins/meta-box-show-hide-javascript/): Toggle meta boxes by page template, post format, taxonomy (including category) via Javascript.
+- [Meta Box Tabs](http://metabox.io/plugins/meta-box-tabs/): Create tabs for meta boxes easily. Support 3 WordPress-native tab styles and tab icon.
+- [Meta Box Columns](http://metabox.io/plugins/meta-box-columns/): Display fields more beautiful by putting them into 12-columns grid.
+- [Meta Box Include Exclude](http://metabox.io/plugins/meta-box-include-exclude/): Show/hide meta boxes by ID, page template, taxonomy or custom function.
 
-- button
-- checkbox, checkbox_list
-- color
-- date, time, datetime
-- divider
-- file, file_advanced, file_input (allow to upload or paste file URL)
-- heading
-- hidden
-- image, thickbox_image, plupload_image, image_advanced, image_select (or radio image)
-- map
-- password
-- post
-- radio
-- select, select_advanced (uses [select2](http://ivaynberg.github.com/select2/))
-- slider, range
-- taxonomy
-- text, url, email, number, oembed
-- textarea
-- wysiwyg
+See all premium extensions [here](http://metabox.io).
 
-**Plugin Links**
+### Plugin Links
 
-- [Project Page](http://www.deluxeblogtips.com/meta-box/)
-- [Documentation](http://www.deluxeblogtips.com/meta-box/getting-started/)
+- [Project Page](http://metabox.io/meta-box/)
+- [Documentation](http://metabox.io/docs/)
 - [Report Bugs/Issues](https://github.com/rilwis/meta-box/issues)
-- [Premium Extensions](http://premium.deluxeblogtips.com)
+- [Premium Extensions](http://metabox.io)
 
 == Installation ==
 
@@ -55,15 +43,26 @@ Meta Box plugin provides an API to easily implement custom meta boxes in editing
 1. Upload `meta-box` to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 
-To getting started with the plugin API, please read [this tutorial](http://www.deluxeblogtips.com/meta-box/getting-started/).
+To getting started with the plugin API, please read [this tutorial](http://metabox.io/docs/getting-started/).
 
 == Frequently Asked Questions ==
 
 == Screenshots ==
-1. Basic fields
-2. Advanced fields
+1. Supported fields
 
 == Changelog ==
+
+= 4.3.11 =
+* Bug fix: use field id instead of field_name for wysiwyg field
+* Improvement: allow to sort files
+* Improvement: use 'meta-box' text domain instead of 'rwmb'
+* Improvement: coding standards
+
+= 4.3.10 =
+* Bug fix: upload & reorder for image fields
+* Bug fix: not saving meta caused by page template issue
+* Bug fix: filter names for helper and shortcode callback functions
+* Bug fix: loads correct locale JS files for jQueryUI date/time picker
 
 = 4.3.9 =
 * Bug fix: `text-list` field type

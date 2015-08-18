@@ -9,7 +9,7 @@
 	<?php
 	$temp = $wp_query;
 	$wp_query= null;
-	$wp_query = new WP_Query( 'cat=-3' ); //excludes category id 3 (slider)
+	$wp_query = new WP_Query( '' ); //excludes category id 3 (slider)
 	$wp_query->query('paged='.$paged);
 	?>
 	<?php while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
@@ -22,10 +22,11 @@
 
 			<div class="entry">
 			<?php $image_attr = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'news'); ?>	
-				<img src="<?php echo $image_attr[0]; ?>" class="postim scale-with-grid"  >
+				<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><img src="<?php echo $image_attr[0]; ?>" class="postim scale-with-grid"></a>
 				<?php wpe_excerpt('wpe_excerptlength_archive', ''); ?>
 				<div class="clear"></div>
 			</div>
+			<hr class="blog">
 		</div>
 
 	<?php endwhile; ?>

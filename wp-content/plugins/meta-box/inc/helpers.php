@@ -28,6 +28,7 @@ if ( ! class_exists( 'RWMB_Helper' ) )
 		 * Shortcode to display meta value
 		 *
 		 * @param $atts Array of shortcode attributes, same as meta() function, but has more "meta_key" parameter
+		 *
 		 * @see meta() function below
 		 *
 		 * @return string
@@ -117,7 +118,7 @@ if ( ! class_exists( 'RWMB_Helper' ) )
 				$content = $meta;
 			}
 
-			return apply_filters( __FUNCTION__, $content );
+			return apply_filters( 'rwmb_shortcode', $content );
 		}
 
 		/**
@@ -213,7 +214,7 @@ if ( ! class_exists( 'RWMB_Helper' ) )
 				$meta = self::map( $key, $args, $post_id );
 			}
 
-			return apply_filters( __FUNCTION__, $meta, $key, $args, $post_id );
+			return apply_filters( 'rwmb_meta', $meta, $key, $args, $post_id );
 		}
 
 		/**
@@ -226,6 +227,7 @@ if ( ! class_exists( 'RWMB_Helper' ) )
 		static function file_info( $id )
 		{
 			$path = get_attached_file( $id );
+
 			return array(
 				'ID'    => $id,
 				'name'  => basename( $path ),
@@ -254,7 +256,8 @@ if ( ! class_exists( 'RWMB_Helper' ) )
 				return false;
 
 			$attachment = get_post( $id );
-			$path = get_attached_file( $id );
+			$path       = get_attached_file( $id );
+
 			return array(
 				'ID'          => $id,
 				'name'        => basename( $path ),
@@ -293,7 +296,7 @@ if ( ! class_exists( 'RWMB_Helper' ) )
 				$parts[2] = 14;
 
 			// Map parameters
-			$args = wp_parse_args( $args, array(
+			$args               = wp_parse_args( $args, array(
 				'width'        => '640px',
 				'height'       => '480px',
 				'marker'       => true, // Display marker?
@@ -381,7 +384,8 @@ if ( ! class_exists( 'RWMB_Helper' ) )
 			$html .= '} )();
 				</script>';
 
-			$counter++;
+			$counter ++;
+
 			return $html;
 		}
 	}

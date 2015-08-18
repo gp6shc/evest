@@ -1,4 +1,3 @@
-
 <?php get_header(); ?>
 
 
@@ -11,12 +10,16 @@
 					<div class="contractor-entry">
 						<h1><?php the_title()?></h1>
 						<h3><?php 
+							// List the counties served by the contractor
 							$category = get_the_category();
 							$length = count($category);
 							$i = 0;
 							foreach($category as $aCat) {
 								if ($aCat->cat_name === "Contractor") {
 									echo "";
+								}elseif ($length >= 67){
+									echo "Serves All of Florida";
+									break;
 								}elseif ($length <= 2){
 									echo $aCat->cat_name . " County";
 								}elseif ($i === $length - 1){
@@ -46,7 +49,7 @@
 		<div class="post" id="post-<?php the_ID(); ?>">
 			<div class="title">
 				<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); ?></a></h2>
-				<div class="postmeta"> 	<span>Posted by <?php the_author_posts_link(); ?></span> | <span><?php the_time('l, n F Y'); ?></span> | <span><?php the_category(', '); ?></span> </div>
+				<div class="postmeta"> 	<span>Posted by <?php the_author_posts_link(); ?></span> | <span><?php the_category(', '); ?></span> </div>
 			</div>
 		
 			<div class="entry">

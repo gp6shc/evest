@@ -4,7 +4,7 @@
 //include ( 'metabox.php' );
 //include ( 'cpt.php' );
 //include ( 'guide.php' );
-
+//include ('paceify/webhook.php');
 
 /* SIDEBARS */
 if ( function_exists('register_sidebar') )
@@ -46,7 +46,7 @@ if ( function_exists( 'add_theme_support' ) ) { // Added in 2.9
 	add_image_size( 'top_feature', 960, 500, true );
 	add_image_size( 'index_box', 420, 280, true );
 	add_image_size( 'index_wide', 420, 180, true );
-	add_image_size( 'news', 420, 180, true );
+	add_image_size( 'news', 550, 300, true );
 }
 
 /* CUSTOM EXCERPTS */
@@ -154,9 +154,7 @@ function the_post_tags() {
 								
 							<?php break;
 							
-							case "Energy Audits":
-							case "Energy Efficiency":
-							case "Energy": ?>				
+							case "Energy Efficiency": ?>				
 								<div class="tag-unit">
 									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Energy_1.png"/>
 									<div class="tag-contain"><p><?php echo $this_tag->name?></p></div>
@@ -164,9 +162,9 @@ function the_post_tags() {
 								
 							<?php break;
 							
-							case "HVAC": ?>
+							case "Energy Audits": ?>
 								<div class="tag-unit">
-									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_HVAC_1.png"/>
+									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Audit_1.png"/>
 									<div class="tag-contain"><p><?php echo $this_tag->name?></p></div>
 								</div>
 								
@@ -180,9 +178,17 @@ function the_post_tags() {
 								
 							<?php break;
 							
-							case "Solar": ?>
+							case "Renewables": ?>
 								<div class="tag-unit">
 									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Solar_1.png"/>
+									<div class="tag-contain"><p><?php echo $this_tag->name?></p></div>
+								</div>
+
+							<?php break;
+
+							case "Industrial": ?>
+								<div class="tag-unit">
+									<img class="tag-image" src="<?php bloginfo('stylesheet_directory')?>/images/Evest_Industrial_1.png"/>
 									<div class="tag-contain"><p><?php echo $this_tag->name?></p></div>
 								</div>
 								
@@ -250,7 +256,7 @@ function customize_output($results , $arg, $id, $getdata ){
 			</div>
 	<?}
 
-                        echo  $apiclass->ajax_pagination($arg['paged'],$query->max_num_pages, 4, $id, $getdata);
+                        echo  $apiclass->ajax_pagination($arg['paged'],$query->max_num_pages, 10, $id, $getdata);
 		 } else {
 					 echo  '<h1>No contractors found.</h1>';
 				}
@@ -259,4 +265,38 @@ function customize_output($results , $arg, $id, $getdata ){
 
 		$results = ob_get_clean();		
 			return $results;
-}?>
+}
+
+/*
+* Add custom taxonomies
+ *
+ * Additional custom taxonomies can be defined here
+ * http://codex.wordpress.org/Function_Reference/register_taxonomy
+
+function add_custom_taxonomies() {
+  // Add new "Statewide" taxonomy to Posts
+  register_taxonomy('statewide', 'post', array(
+    // Hierarchical taxonomy (like categories)
+    // This array of options controls the labels displayed in the WordPress Admin UI
+    'labels' => array(
+      'name' => _x( 'Statewide', 'taxonomy general name' ),
+      'singular_name' => _x( 'Statewide', 'taxonomy singular name' ),
+      'search_items' =>  __( 'Search Statewide' ),
+      'all_items' => __( 'All Statewide' ),
+      'edit_item' => __( 'Edit' ),
+      'update_item' => __( 'Update' ),
+      'add_new_item' => __( 'Add New' ),
+      'new_item_name' => __( 'New Statewide' ),
+      'menu_name' => __( 'Statewide' ),
+    ),
+    // Control the slugs used for this taxonomy
+    'rewrite' => array(
+      'slug' => 'statewide', // This controls the base slug that will display before each term
+      'with_front' => false, // Don't display the category base before "/locations/"
+      'hierarchical' => true // This will allow URL's like "/locations/boston/cambridge/"
+    ),
+  ));
+}
+add_action( 'init', 'add_custom_taxonomies', 0 );
+*/
+?>

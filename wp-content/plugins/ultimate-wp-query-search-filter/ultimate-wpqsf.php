@@ -3,14 +3,14 @@
 Plugin Name: Ultimate WP Query Search Filter
 Plugin URI: http://www.9-sec.com/
 Description: This plugin let you using wp_query to filter taxonomy,custom meta and post type as search result.
-Version: 1.0.6
-Author: TC 
+Version: 19.0.7
+Author: TC
 Author URI: http://www.9-sec.com/
 */
 /*  Copyright 2012 TCK (email: devildai@gmail.com)
 
     This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License, version 2, as 
+    it under the terms of the GNU General Public License, version 2, as
     published by the Free Software Foundation.
 
     This program is distributed in the hope that it will be useful,
@@ -29,7 +29,7 @@ if ( ! defined( 'UADDFORMURL' ) )
 
 if(!class_exists('ulitmatewpsf')){
 include_once('classes/uwpqsf-base-class.php');
-include_once('admin/list-from-class.php');	
+include_once('admin/list-from-class.php');
 include_once('classes/uwpqsf-front-class.php');
 include_once('classes/uwpqsf-process-class.php');
 include_once('functions.php');
@@ -38,15 +38,15 @@ class ulitmatewpsf{
 
   function __construct(){
 		add_action( 'init' , array( $this,'uwpqsf_setting' ) );
-		add_action('admin_menu', array($this,'uwpqsf_menu'));	
+		add_action('admin_menu', array($this,'uwpqsf_menu'));
 		//save form
 		 add_action('admin_init', array($this,'uwpqsf_save_from'));
 		// admin add taxonomy ajax
-		add_action( 'wp_ajax_uwpqsfTaxo_ajax', array( $this,'uwpqsfTaxo_ajax') );  
+		add_action( 'wp_ajax_uwpqsfTaxo_ajax', array( $this,'uwpqsfTaxo_ajax') );
 		// admin add meta fields ajax
-		add_action( 'wp_ajax_uwpqsfCmf_ajax', array( $this,'uwpqsfCmf_ajax') ); 
+		add_action( 'wp_ajax_uwpqsfCmf_ajax', array( $this,'uwpqsfCmf_ajax') );
 		//generate exlude terms
-		add_action( 'wp_ajax_uwpqsfexclude_terms', array( $this,'uwpqsfexclude_terms') ); 
+		add_action( 'wp_ajax_uwpqsfexclude_terms', array( $this,'uwpqsfexclude_terms') );
 	}
 
   function uwpqsf_setting(){
@@ -61,45 +61,45 @@ class ulitmatewpsf{
 	load_plugin_textdomain( 'UWPQSF', false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
 	add_shortcode('ULWPQSF', array($this, 'U_wpqsf_shortcode'));
 	add_filter('widget_text', 'do_shortcode');
-  }		
+  }
 
   function uwpqsf_menu() {
       if(isset($_GET['page']) && isset($_GET['uformaction']) && $_GET['page'] == 'uwpqsfform' &&  $_GET['uformaction'] == 'edit'){
 			if(isset($_GET['uformid']) && absint($_GET['uformid'])){
 			 $editmenu = __("Edit Form","UWPQSF");
-			 $title = __("Edit Ultimate WPQSF ","UWPQSF");	
+			 $title = __("Edit Ultimate WPQSF ","UWPQSF");
 	   }
         }
 	     $menutitle = isset($editmenu) ? $editmenu : __("Add Form","UWPQSF");
-	     $pagetitle = isset($title) ? $title : __("Add New Ultimate WPQSF ","UWPQSF");	
+	     $pagetitle = isset($title) ? $title : __("Add New Ultimate WPQSF ","UWPQSF");
 	   add_menu_page(__("Ultimate Query Search Filter","UWPQSF"),__("Ulitmate WPQSF","UWPQSF"),'manage_options','ultimatewpqsf', array($this,'Uwoqsf_page'));
-	  $plugin_page =  add_submenu_page( 'ultimatewpqsf', $pagetitle , $menutitle, 'manage_options', 'uwpqsfform', array($this,'add_new_form_callback') ); 
-	 
+	  $plugin_page =  add_submenu_page( 'ultimatewpqsf', $pagetitle , $menutitle, 'manage_options', 'uwpqsfform', array($this,'add_new_form_callback') );
+
 	   add_action('admin_print_scripts-'.$plugin_page, array($this,'admin_uwpqsf_js'));
 	   add_action('admin_print_styles-'.$plugin_page, array($this,'admin_uwpqsf_css'));
-	
+
   }
 
   function Uwoqsf_page(){
 	global $uwqsfmain;
 	$uwqsfmain = new Uwpqsf_Table;
-	$uwqsfmain->prepare_items(); 
+	$uwqsfmain->prepare_items();
 	$uddlink = add_query_arg(array('uformid' => 'new', 'uformaction' => 'new'), UADDFORMURL);
-	echo '<div class="wrap"><div id="icon-options-general" class="icon32"></div><h2>'.esc_html( __( 'Ultimate WP Query Search Filter', 'UWPQSF' ) ).'<a 	  		href="'.$uddlink .'" class="add-new-h2">'.esc_html( __( 'Add New Search Form', 'UWPQSF' ) ).'</a></h2>'; 
-	echo '<form method="post">'; $uwqsfmain->display(); 		
-	echo '</form></div>'; 
+	echo '<div class="wrap"><div id="icon-options-general" class="icon32"></div><h2>'.esc_html( __( 'Ultimate WP Query Search Filter', 'UWPQSF' ) ).'<a 	  		href="'.$uddlink .'" class="add-new-h2">'.esc_html( __( 'Add New Search Form', 'UWPQSF' ) ).'</a></h2>';
+	echo '<form method="post">'; $uwqsfmain->display();
+	echo '</form></div>';
   }
- 
+
   function add_new_form_callback(){
 	require_once UWPQSFBASE . '/admin/forms.php';
   }
-	
+
   function admin_uwpqsf_js(){
-	
+
 	wp_enqueue_script('jquery-ui-sortable');
 	wp_enqueue_script('js', plugins_url('admin/scripts/uadmin_awqsfjs.js', __FILE__), array('jquery'), '1.0', true);
-	wp_localize_script( 'ajax-request', 'MyAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) ); 
-  }	
+	wp_localize_script( 'ajax-request', 'MyAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+  }
 
   function admin_uwpqsf_css(){
 	wp_enqueue_style('uwpqsfcss', plugins_url('admin/scripts/admin_uwpqsf.css', __FILE__), '1.0', true);
@@ -111,14 +111,14 @@ class ulitmatewpsf{
 
   function uwpqsfCmf_ajax(){
 	include 'admin/ajax-add-cmf.php';
-  }			
+  }
 
   function uwpqsf_save_from(){
 		 if(isset($_POST['uwpqsfsub'])){
 
 		if (! wp_verify_nonce($_POST['nonce'], 'ultimate-wpqsf-edit') ) {
 			$this->handle_error()->add('nonce', __("No naughty business here, dude", 'UWPQSF'));
-			return; 
+			return;
 		}
 
 
@@ -127,11 +127,11 @@ class ulitmatewpsf{
 			if(!empty($_POST['uwpname']['cpt'])){
 				foreach($_POST['uwpname']['cpt'] as $cv){
 						$cptarray[] = sanitize_text_field($cv);
-					
+
 				}
 			}
 			if(isset($_POST['uwpname']['taxo'])){
-				
+
 				foreach($_POST['uwpname']['taxo'] as $tv){
 					$taxoarray[]=array(
 							'taxname' => sanitize_text_field($tv['taxname']),
@@ -143,8 +143,8 @@ class ulitmatewpsf{
 							'operator' => sanitize_text_field($tv['operator']),
 							'exsearch' => sanitize_text_field($tv['exsearch']),
 						);
-					
-					
+
+
 					}
 			}
 
@@ -158,7 +158,7 @@ class ulitmatewpsf{
 							'type' => sanitize_text_field($cv['type']),
 							'opt' => sanitize_text_field($cv['opt'])
 						);
-					
+
 					}
 			}
 
@@ -180,11 +180,11 @@ class ulitmatewpsf{
 						);
 					}
 			}
-					
+
 		 if(isset($_POST['themeopt'])){
 			 $themeoption = $_POST['themeopt'];
-		 }			
-		
+		 }
+
 		 if($postid == 'new'){
 
 				$post_information = array(
@@ -195,8 +195,8 @@ class ulitmatewpsf{
 				$newform_id = wp_insert_post($post_information);
 				if(empty($newform_id)){
 					$this->handle_error()->add('insert', __("Error! Try to create again.", 'UWPQSF'));
-					return; 
-					
+					return;
+
 				}
 				if(!empty($cptarray) ){
 				update_post_meta($newform_id, 'uwpqsf-cpt', $cptarray);}
@@ -208,7 +208,7 @@ class ulitmatewpsf{
 				update_post_meta($newform_id, 'uwpqsf-option', $relarray);}
 				if(!empty($themeoption)){
 				update_post_meta($newform_id, 'uwpqsf-theme', $themeoption);}
-								
+
 				$returnlink = add_query_arg(array('uformid' => $newform_id, 'uformaction' => 'edit','status'=>'success'), UADDFORMURL);
 				wp_redirect( $returnlink ); exit;
 		}//end add new
@@ -222,16 +222,16 @@ class ulitmatewpsf{
 			$update = wp_update_post( $updateform );
 			if(empty($update)){
 					$this->handle_error()->add('update', __("Error! Something wrong when updating your setting.", 'UWPQSF'));
-					return; 
-					
+					return;
+
 				}
-			
+
 				$oldcpt = get_post_meta($postid, 'uwpqsf-cpt', true);
 				$oldtaxo = get_post_meta($postid, 'uwpqsf-taxo', true);
-				$oldcmf = get_post_meta($postid, 'uwpqsf-cmf', true);	
+				$oldcmf = get_post_meta($postid, 'uwpqsf-cmf', true);
 				$oldrel = get_post_meta($postid, 'uwpqsf-option', true);
 				$oldthemeopt = get_post_meta($postid, 'uwpqsf-theme', true);
-				
+
 				$newcpt = !empty($cptarray) ? $cptarray : '';
 				$newtaxo = !empty($taxoarray) ? $taxoarray : '';
 				$newcmf = !empty($cmfarray) ? $cmfarray : '';
@@ -239,15 +239,15 @@ class ulitmatewpsf{
 				$newthemeopt = !empty($themeoption) ? $themeoption : '';
 
 				if (empty($newcpt)) {
-				delete_post_meta($postid, 'uwpqsf-cpt', $oldcpt);	
-				
+				delete_post_meta($postid, 'uwpqsf-cpt', $oldcpt);
+
 				} elseif($oldcpt != $newcpt) {
 				update_post_meta($postid, 'uwpqsf-cpt', $newcpt);
 				}
-				
+
 				if (empty($newtaxo)) {
 				delete_post_meta($postid, 'uwpqsf-taxo', $oldtaxo);
-				
+
 				} elseif($newtaxo != $oldtaxo) {
 				update_post_meta($postid, 'uwpqsf-taxo', $newtaxo);
 				}
@@ -256,27 +256,27 @@ class ulitmatewpsf{
 				delete_post_meta($postid, 'uwpqsf-cmf', $oldcmf);
 				} elseif ($newcmf != $oldcmf) {
 				update_post_meta($postid, 'uwpqsf-cmf', $newcmf);
-				}	
-				
-				
+				}
+
+
 				if (empty($newrel)) {
 				delete_post_meta($postid, 'uwpqsf-option', $oldrel);
 				} elseif ($newrel != $oldrel) {
 				update_post_meta($postid, 'uwpqsf-option', $newrel);
 				}
-				
+
 				if($newthemeopt != $oldthemeopt) {
 				update_post_meta($postid, 'uwpqsf-theme', $newthemeopt);
 				}
-				
+
 				$returnlink = add_query_arg(array('uformid' => $postid, 'uformaction' => 'edit','status'=>'updated'), UADDFORMURL);
 				wp_redirect( $returnlink ); exit;
 
-			
+
 		 }//end update
-		
+
 	   }//end submit
-		
+
 
   }
 
@@ -292,8 +292,8 @@ class ulitmatewpsf{
 	else{
 		echo 'no form added.';
 	}
-  }	
-  
+  }
+
   function uwpqsfexclude_terms(){
 	  $cutax   = $_POST['cutax'];
 	  $exterms = $_POST['exterms'];
@@ -303,7 +303,7 @@ class ulitmatewpsf{
 		  $edis = explode(",",  $exterms );
 	  }
 	  echo '<h3>'.__('Selected Taxonomy : '.$cutax,"UWPQSF").'</h3><br>';
-	 
+
 	  if(!empty($cutax)){
 		  $gterms = get_terms( $cutax , array('hide_empty' => 0 ) );
 		  foreach($gterms as $gterm){
@@ -312,14 +312,14 @@ class ulitmatewpsf{
 	  }else{
 		    if(empty($cutax)){
 		    echo __("Please Select a taxonomy first","UWPQSF");}
-		    else{ 
+		    else{
 				  echo __("No term found in this taxonomy ","UWPQSF");
 				}
 		  }
-	echo '<input type="hidden" id="ediv" value="'.$ediv.'">';  
-	
-	  exit;	
-  }	
+	echo '<input type="hidden" id="ediv" value="'.$ediv.'">';
+
+	  exit;
+  }
 
 }//end of class
 

@@ -33,9 +33,5 @@ jQuery('.rightbox').hover( function() {
 		}, function() {
 			jQuery(this).find('.overlay').fadeOut(150);
 		});
-		
-
-	
-	
 });
 

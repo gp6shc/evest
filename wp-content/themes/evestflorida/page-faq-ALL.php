@@ -33,9 +33,6 @@ Template Name: FAQs PAGE ALL
 	<?php while (have_posts()) : the_post(); ?>
 		
 		<div class="post" id="post-<?php the_ID(); ?>">
-			<div class="title">
-				<h2><a title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
-			</div>
 		
 			<div class="entry">
 			<!--<?php the_content('Read the rest of this entry &raquo;'); ?>-->

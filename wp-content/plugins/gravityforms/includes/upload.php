@@ -27,13 +27,13 @@ class GFAsyncUpload {
         // If the file is bigger than the server can accept then the form_id might not arrive.
         // This might happen if the file is bigger than the max post size ini setting.
         // Validation in the browser reduces the risk of this happening.
-        if (!isset($_REQUEST["form_id"])) {
+        if (!isset($_REQUEST["form_id_fix"])) {
             GFCommon::log_debug("GFAsyncUpload::upload() - File upload aborted because the form_id was not found. The file may have been bigger than the max post size ini setting.");
             die('{"status" : "error", "error" : {"code": 500, "message": "' . __("Failed to upload file.", "gravityforms") . '"}}');
         }
 
-        $form_id        = $_REQUEST["form_id"];
-        $form_unique_id = rgpost("gform_unique_id");
+        $form_id        = $_REQUEST["form_id_fix"];
+        $form_unique_id = rgpost("gform_unique_id_fix");
         $form           = GFFormsModel::get_form_meta($form_id);
 
         $target_dir = GFFormsModel::get_upload_path($form_id) . DIRECTORY_SEPARATOR . "tmp" . DIRECTORY_SEPARATOR;
@@ -48,7 +48,7 @@ class GFAsyncUpload {
         $chunks = isset($_REQUEST["chunks"]) ? intval($_REQUEST["chunks"]) : 0;
 
         $file_name = isset($_REQUEST["name"]) ? $_REQUEST["name"] : '';
-        $field_id  = rgpost("field_id");
+        $field_id  = rgpost("field_id_fix");
         $field     = GFFormsModel::get_field($form, $field_id);
         // Clean the fileName for security reasons
         $file_name = preg_replace('/[^\w\._]+/', '_', $file_name);

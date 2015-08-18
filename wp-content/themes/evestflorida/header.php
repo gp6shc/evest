@@ -33,7 +33,7 @@
 	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 	<link rel="alternate" type="application/atom+xml" title="<?php bloginfo('name'); ?> Atom Feed" href="<?php bloginfo('atom_url'); ?>" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-	<link rel="shortcut icon" href="<?php echo home_url(); ?>/favicon.ico" />
+	<link rel="icon" type="image/png" href="<?php echo home_url(); ?>/favicon-32x32.png" sizes="32x32">
 
 <?php 
 	wp_enqueue_script('jquery');
@@ -78,9 +78,9 @@
 						<li> <a href="<?php echo of_get_option('w2f_linkedin'); ?>"> <img src="<?php echo get_template_directory_uri(); ?>/images/in.png"> </a> </li>
 					</ul>-->
 					
-					<div id="find-a-contractor">E|VEST Florida delivered by the <a href="http://www.floridapace.gov/" target="_blank">Florida PACE Funding Agency</a>
+					<div id="find-a-contractor">LOGIN TO YOUR SECURE ACCOUNT <a href="https://www.paceify.com/PACE_PROD/Account/FLogin.aspx?ReturnUrl=%2fPACE_PROD%2f%3fsiteContext%3d&siteContext" target="_blank">HERE</a>
 						<div class="button1">
-    					<a class="txt" href="<?php echo home_url(); ?>/find-a-contractor">For Authorized Contractors</a>
+    					<a class="txt" href="<?php echo home_url(); ?>/get-a-quote/">Get a Quote</a>
 						</div>
     				</div>
 					<!-- <?php get_search_form( ); ?> -->
