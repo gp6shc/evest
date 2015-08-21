@@ -50,22 +50,19 @@ width: 98% !important;
 
 	<div id="results-total">
 		<?php  
-			$numberOfQueries = $custom_query->found_posts;
+			$numberOfQueries = $query->found_posts;
 			
-			if ($numberOfQueries == 1) {?>
+			if ($numberOfQueries == 1) : ?>
 				<h2><?php echo $numberOfQueries; ?> contractor was found:</h2>
-			<?}elseif ($numberOfQueries == 0){?>
+			<?php elseif ($numberOfQueries == 0): ?>
 				<h2></h2>
-			<?}else{?>
+			<?php else: ?>
 				<h2><?php echo $numberOfQueries; ?> contractors were found:</h2>
-			<?}
-			
-		?> 
-		
+			<?php endif; ?>
 	</div>
 	
-<?php	if ( $custom_query->have_posts() ) {
-			while ( $custom_query->have_posts() ) {
+<?php	if ( $custom_query->have_posts() ) :
+			while ( $custom_query->have_posts() ) :
 				$custom_query->the_post();
 				
 				$thumb_id = get_post_thumbnail_id();
@@ -82,8 +79,8 @@ width: 98% !important;
 					<?php the_post_tags(); ?>
 				</a>	
 			</div>
-		<?  }
-		}
+		<?php endwhile;
+	endif;
 
 wp_reset_postdata();
 

@@ -146,7 +146,7 @@ function the_post_tags() {
 	
 	foreach($all_the_tags as $this_tag) {
 		$current_tag = $this_tag->name;
-		$style_dir = bloginfo('stylesheet_directory');
+		$style_dir = get_bloginfo('stylesheet_directory');
 		switch ($current_tag) {
 			case "Renewable Generation":
 			case "Commercial":

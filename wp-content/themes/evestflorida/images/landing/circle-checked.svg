@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="33px" height="28px" viewBox="0 0 33 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.1.1 (8761) - http://www.bohemiancoding.com/sketch -->
+    <title>Slice 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path id="path-1" d="M0.06,-0.035 L32.688,-0.035 L32.688,63 L0.06,63 L0.06,-0.035 Z"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="15-PFA-201-EVEST-LandingPage_Icons2" sketch:type="MSLayerGroup" transform="translate(0.000000, -35.000000)">
+            <g id="Group-3">
+                <mask id="mask-2" sketch:name="Clip 2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-2"></g>
+                <path d="M9.562,45.384 C9.063,44.812 8.113,44.747 7.54,45.247 C6.945,45.767 6.883,46.674 7.402,47.27 L11.883,52.403 C12.155,52.715 12.549,52.894 12.963,52.894 C13.268,52.894 13.559,52.799 13.806,52.619 L24.714,44.673 C25.267,46.027 25.578,47.506 25.578,49.057 C25.578,55.474 20.358,60.693 13.942,60.693 C7.526,60.693 2.307,55.474 2.307,49.057 C2.307,42.641 7.526,37.421 13.942,37.421 C17.776,37.421 21.172,39.292 23.293,42.161 L13.179,49.528 L9.562,45.384 L9.562,45.384 Z M32.414,37.291 C31.965,36.674 31.027,36.527 30.411,36.976 L25.155,40.805 C22.614,37.362 18.541,35.114 13.942,35.114 C6.254,35.114 0,41.369 0,49.057 C0,56.745 6.254,63 13.942,63 C21.63,63 27.885,56.745 27.885,49.057 C27.885,46.997 27.424,45.047 26.619,43.285 L32.099,39.293 C32.737,38.827 32.878,37.93 32.414,37.291 L32.414,37.291 Z" id="Fill-1" fill="#2B7B61" sketch:type="MSShapeGroup" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>
