@@ -26,6 +26,6 @@
 <header class="banner" id="js-banner">
 	<div class="container">
 		<img class="banner-logo" src="<?= get_template_directory_uri(); ?>/images/landing/evest-logo.svg"/>
-		<a class="quote-wrap banner-button" href="#"><button class="quote-button">Request a Free Quote</button></a>
+		<a class="quote-wrap banner-button" href="/residential-application/"><button class="quote-button">Request a Free Quote</button></a>
 	</div>
 </header>

@@ -68,7 +68,7 @@ Template Name: Landing Page
 		<div class="full-content impress">
 			<p>Need to make other improvements to your home, like windows, doors, an A/C unit or even a solar panels?<br/>
 			<b>E|VEST Florida provides financing for those essentials too.</b></p>
-			<a class="quote-wrap" href="#"><button class="quote-button white" >Request a Free Quote</button></a>
+			<a class="quote-wrap" href="/residential-application/"><button class="quote-button white" >Request a Free Quote</button></a>
 		</div>
 	</div>
 </section>
@@ -107,7 +107,7 @@ Template Name: Landing Page
 		<div class="split-content-wrap">
 			<h3>You Choose<span>Your Contractor</span></h3>
 			<p>Choose an authorized contractor from our directory of hundreds. Prefer to use your own contractor? Ask them to apply to become an E|VEST Authorized Contractor</p>
-			<a class="quote-wrap" href="#"><button class="quote-button impress" >Request a Free Quote</button></a>
+			<a class="quote-wrap" href="/residential-application/"><button class="quote-button impress" >Request a Free Quote</button></a>
 		</div>
 	</div>
 </section>
