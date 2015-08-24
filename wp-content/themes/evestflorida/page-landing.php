@@ -68,7 +68,7 @@ Template Name: Landing Page
 		<div class="full-content impress">
 			<p>Need to make other improvements to your home, like windows, doors, an A/C unit or even a solar panels?<br/>
 			<b>E|VEST Florida provides financing for those essentials too.</b></p>
-			<a class="quote-wrap" href="/residential-application/"><button class="quote-button white" >Request a Free Quote</button></a>
+			<a class="quote-wrap white" href="/residential-application/"><button class="quote-button" >Request a Free Quote</button></a>
 		</div>
 	</div>
 </section>

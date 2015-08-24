@@ -115,6 +115,17 @@ li {
 		transition: transform 250ms;
 		z-index: -1;
 	}
+	&.white {
+		
+		&::before {
+			background-color: white;
+		}
+		
+		.quote-button {
+			color: white;
+			border-color: white;
+		}
+	}
 
 	&:hover {
 
@@ -124,6 +135,12 @@ li {
 		
 		&::before {
 			transform: translateY(0);	
+		}
+	}
+	
+	&.white:hover {
+		.quote-button {
+			color: $green;
 		}
 	}
 }
@@ -138,11 +155,6 @@ li {
 	-webkit-appearance: none;
 	position: relative;
 	transition: color 250ms;
-	
-	&.white {
-		color: white;
-		border-color: white;
-	}
 }
 .green {
 	color: $green;
