@@ -1,23 +1,3 @@
-<!-- Finale -->
-<section class="full finale">
-	<div class="container">
-		<div class="full-content impress">
-			<p>Don't put off necessary repairs or improvements any longer.</br>
-			Applying for <b class="green">E|VEST Florida</b> financing is fast, easy and FREE!</p>
-			<a class="quote-wrap" href="/residential-application/"><button class="quote-button" >Request a Free Quote</button></a>
-		</div>
-	</div>
-</section>
-
-<!-- Disclaimer -->
-<section class="disclaimer">
-	<div class="container">
-		<div class="full-content">
-			<small><i>*For security purposes, a credit report will be run during the application process to determine the status of any mortgage payments and/pr balance and verify there are no bankruptcies in the past three years.</i></small> 
-		</div>
-	</div>
-</section>
-
 <!-- Google Tag Manager -->
 <!--
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MJ878B"

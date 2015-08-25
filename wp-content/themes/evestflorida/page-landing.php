@@ -5,115 +5,98 @@ Template Name: Landing Page
 ?>
 
 <?php require 'header-landing.php'; ?>
+<?php $fields = get_fields();?>
 
-
-<section class="intro">
+<section class="intro" style="background-image:linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.7)), url(<?=$fields['section_photo_1'] ?>);">
 	<div class="container">
 		<header>
-			<h1>Need a cost-effective way<span>to replace your roof?</span></h1>
-			<p class="impress"><b>E|VEST Florida</b> Offers Homeowners an Alternative to Bank Loans & Credit Card Debt</p>
+			<?=htmlspecialchars_decode( $fields['section_1']  ); ?>
 		</header>
 		<a href="#js-scrolled-to"><div class="scroll" id="js-arrow-scroll"></div></a>
 	</div>
 </section>
 
-<!-- Broken Roof -->
+<!-- Section 2 -->
 <section class="split split-alt" id="js-scrolled-to">
-	<div class="split-image broken-roof"></div>
+	<div class="split-image" style="background-image:url(<?=$fields['section_photo_2'] ?>)"></div>
 	<div class="split-content">
-		<div class="split-content-wrap impress">
-			<p>Tired of constantly patching roof leaks?</p>
-			<p>Nervous your roof won't protect loved ones during a serious storm or hurricane?</p>
+		<div class="split-content-wrap">
+			<?=htmlspecialchars_decode( $fields['section_2']  ); ?>
 		</div>
 	</div>
 </section>
 
-<!-- Shiny Roof -->
+<!-- Section 3 -->
 <section class="split">
-	<div class="split-image shiny-roof"></div>
+	<div class="split-image" style="background-image:url(<?=$fields['section_photo_3'] ?>)"></div>
 	<div class="split-content">
 		<div class="split-content-wrap">
-			<h3>It's time for<span>a new roof</span></h3>
-			<p>
-				<b>Replacing your roof...</b>
-				<ul>
-					<li>Increases the value of your home</li>
-					<li>Decreases your property insurance premium</li>
-					<li>Protects your family and investment</li>
-				</ul>
-			</p>
+			<?=htmlspecialchars_decode( $fields['section_3']  ); ?>
 		</div>
 	</div>
 </section>
 
-<!-- Whole Home -->
-<section class="split split-alt">
-	<div class="split-image whole-home"></div>
-	<div class="split-content">
-		<div class="split-content-wrap">
-			<h3>E|VEST Florida<span>A new way to finance roof replacements</span></h3>
-			<p>Replace your roof with no out-of-pocket cost. Instead, financing is repaid by a special assessment on your property tax bill.</p>
-				<ul class="big-list">
-					<li class="nixed">Pay several hundreds every month on a high-interest conventional loan.</li>
-					<li class="checked">Select a flexible payment plan that works best for you with E|VEST Florida</li>
-				</ul>
-			</p>
-		</div>
-	</div>
-</section>
-
-<!-- Darkened Credit, Full -->
-<section class="full house-cluster">
+<!-- Optional Extra Section -->
+<?php if ( $fields['add_extra_full-width_section']): ?>
+<section class="full-width-off-centered extra-section" style="background-image:linear-gradient(to top,rgba(0,0,0,0.6),rgba(0,0,0,0.5)),url(<?=$fields['extra_full-width_section_photo'] ?>)">
 	<div class="container">
 		<div class="full-content impress">
-			<p>Need to make other improvements to your home, like windows, doors, an A/C unit or even a solar panels?<br/>
-			<b>E|VEST Florida provides financing for those essentials too.</b></p>
-			<a class="quote-wrap white" href="/residential-application/"><button class="quote-button" >Request a Free Quote</button></a>
+			<?=htmlspecialchars_decode( $fields['extra_full-width_section']  ); ?>
 		</div>
 	</div>
 </section>
+<?php endif;?>
 
-<!-- Credit Card -->
-<section class="split">
-	<div class="split-image credit"></div>
+<!-- Section 4 -->
+<section class="split split-alt">
+	<div class="split-image" style="background-image:url(<?=$fields['section_photo_4'] ?>)"></div>
 	<div class="split-content">
 		<div class="split-content-wrap">
-			<h3>No minimum<span>credit score</span></h3>
-			<p>Unlike other financing programs, <b>E|VEST Florida</b> does not base eligibility on credit scores.<small>*</small></p>
+			<?=htmlspecialchars_decode( $fields['section_4']  ); ?>
 		</div>
 	</div>
 </section>
 
-<!-- Darkened Roof, Full, Clauses -->
-<section class="full shingles">
+<!-- Section 5 -->
+<section class="full-width-off-centered" style="background-image:linear-gradient(to top,rgba(0,0,0,0.6),rgba(0,0,0,0.5)),url(<?=$fields['section_photo_5'] ?>)">
+	<div class="container">
+		<div class="full-content impress">
+			<?=htmlspecialchars_decode( $fields['section_5']  ); ?>
+		</div>
+	</div>
+</section>
+
+<!-- Section 6 -->
+<section class="split credit">
+	<div class="split-image" style="background-image:url(<?=$fields['section_photo_6'] ?>)"></div>
+	<div class="split-content">
+		<div class="split-content-wrap">
+			<?=htmlspecialchars_decode( $fields['section_6']  ); ?>
+		</div>
+	</div>
+</section>
+
+<!-- Section 7 -->
+<section class="full-width-off-centered" style="background-image:linear-gradient(to top,rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(<?=$fields['section_photo_7'] ?>)">
 	<div class="container">
 		<div class="full-clauses conditions">
-			<h3>You must meet the following minimum criteria to be eligible for<span>E|VEST Florida Financing</span></h3>
-			<ul>
-				<li>Be the owner of record</li>
-				<li>Be current and have no missed or late property taxes in the past three (3) years or period ownership, whichever is less</li>
-				<li>Be current on mortgage payments and no public notices of delinquency in the past three years or period of ownership, whichever is less</li>
-				<li>Have no involuntary liens on the property</li>
-				<li>Not in foreclosure and no bankruptcies for the past three years</li>
-			</ul>
+			<?=htmlspecialchars_decode( $fields['section_7']  ); ?>
 		</div>
 	</div>
 </section>
 
-<!-- Roofing Contractor -->
+<!-- Section 8 -->
 <section class="split split-alt">
-	<div class="split-image roofing-contractor"></div>
+	<div class="split-image"style="background-image:url(<?=$fields['section_photo_8'] ?>)"></div>
 	<div class="split-content">
 		<div class="split-content-wrap">
-			<h3>You Choose<span>Your Contractor</span></h3>
-			<p>Choose an authorized contractor from our directory of hundreds. Prefer to use your own contractor? Ask them to apply to become an E|VEST Authorized Contractor</p>
-			<a class="quote-wrap" href="/residential-application/"><button class="quote-button impress" >Request a Free Quote</button></a>
+			<?=htmlspecialchars_decode( $fields['section_8']  ); ?>
 		</div>
 	</div>
 </section>
 
-<!-- Darkened Roof, Full, Application -->
-<section class="full shingles">
+<!-- Quick Application -->
+<section class="full-width-off-centered" style="background-image:linear-gradient(to top,rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(<?=$fields['quick_application_photo'] ?>)">
 	<div class="container">
 		<div class="full-blocks">
 			<h3><span>Quick Application Proccess</span></h3>
@@ -144,6 +127,24 @@ Template Name: Landing Page
 					<p>Complete Project</p>
 				</div>
 			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Finale -->
+<section class="full finale">
+	<div class="container">
+		<div class="full-content impress">
+			<?=htmlspecialchars_decode( $fields['finale']  ); ?>
+		</div>
+	</div>
+</section>
+
+<!-- Disclaimer -->
+<section class="disclaimer">
+	<div class="container">
+		<div class="full-content">
+			<?=htmlspecialchars_decode( $fields['disclaimer']  ); ?>
 		</div>
 	</div>
 </section>
