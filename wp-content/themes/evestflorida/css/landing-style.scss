@@ -98,6 +98,10 @@ li {
 	}
 }
 
+.shorten.shorten {
+	max-width: 590px;		
+}
+
 .extra-section p > small {
 	font-size: 16px;
 	vertical-align: 1.8ex;
@@ -221,6 +225,7 @@ li {
 .intro {
 	height: 700px;
 	height: 100vh;
+	min-height: 415px;
 	
 	header {
 		max-width: 740px;
@@ -230,6 +235,9 @@ li {
 	}
 	h1 {
 		margin: 0;
+	}
+	p {
+		max-width: 640px;
 	}
 }
 
@@ -510,6 +518,19 @@ li {
 		font-size: 0.8rem;
 		padding: 3px 6px;
 	}
+	.split {
+		display: block;
+	}
+	.split-image {
+		width: 100%;
+		height: 200px;
+	}
+	.split-content {
+		width: 100%;
+	}
+	.split-alt .split-content-wrap, .split-content-wrap {
+		float: none;
+	}
 }
 @media (max-width: 374px) { // below iPhone 6, portrait
 	.application-grid {
@@ -517,18 +538,18 @@ li {
 	}
 	.block {
 		width: 67%;
-		margin: 1px auto;
+		margin: 2% auto;
+	}
+	.impress {
+		font-size: 1.5em;
+	}
+	.full-width {
+		padding: 10% 2%;
 	}
 }
 @media (max-width: 350px) {
 	body {
 		font-size: 0.7em;
-	}
-	.split-content {
-		width: 85%
-	}
-	.split-image {
-		width: 15%;
 	}
 	.quote-button {
 		font-size: 0.8rem;
