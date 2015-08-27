@@ -507,13 +507,7 @@ li {
 		color: white;
 	}
 }
-@media (max-width: 420px) {
-	.split-content {
-		width: 80%
-	}
-	.split-image {
-		width: 20%;
-	}
+@media (max-width: 413px) { // below iPhone 6+, portrait
 	.banner-button .quote-button {
 		font-size: 0.8rem;
 		padding: 3px 6px;
