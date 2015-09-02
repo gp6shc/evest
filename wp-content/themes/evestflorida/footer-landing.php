@@ -1,3 +1,4 @@
+<script src="<?= get_template_directory_uri(); ?>/js/min/landing.min.js"></script>
 <!-- Google Tag Manager -->
 <!--
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MJ878B"

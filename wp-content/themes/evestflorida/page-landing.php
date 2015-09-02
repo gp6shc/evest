@@ -12,7 +12,7 @@ Template Name: Landing Page
 		<header>
 			<?=htmlspecialchars_decode( $fields['section_1']  ); ?>
 		</header>
-		<a href="#js-scrolled-to"><div class="scroll" id="js-arrow-scroll"></div></a>
+		<div class="scroll" id="js-arrow-scroll"></div>
 	</div>
 </section>
 
@@ -148,68 +148,5 @@ Template Name: Landing Page
 		</div>
 	</div>
 </section>
-
-<script>
-	// Detect request animation frame
-	var scroll = window.requestAnimationFrame ||
-	             window.webkitRequestAnimationFrame ||
-	             window.mozRequestAnimationFrame ||
-	             window.msRequestAnimationFrame ||
-	             window.oRequestAnimationFrame ||
-	             // IE Fallback, you can even fallback to onscroll
-	             function(callback){ window.setTimeout(callback, 1000/60) };
-	var viewHeight = window.innerHeight;
-	var banner = document.getElementById('js-banner');
-	var arrowScroll = document.getElementById('js-arrow-scroll');
-	
-	function loop(){
-	    var top = window.pageYOffset;
-	
-	    // Where the magic goes
-	    if (top > viewHeight - 1) { 						// if page is past first full-height block, and banner isn't already visible, show banner 
-		    banner.className = "banner visible"; 
-	    }else{ 											// otherwise, we're are still in the first full-height block, so if the banner is showing, hide it
-		    banner.className = "banner"; 
-	    }
-	
-	    // Recall the loop
-	    scroll( loop )
-	}
-	
-	// Call the loop for the first time
-	loop();
-	
-	// scrollTo without jQuery
-	function scrollToSmooth(scrollDuration) {
-	    var	scrollHeight = window.pageYOffset;
-		var toBeScrolledTo = document.getElementById('js-scrolled-to');
-	    var distanceToScroll = toBeScrolledTo.offsetTop - scrollHeight;
-	    var scrollStep = distanceToScroll / ( scrollDuration / 12 );
-	        //cosParameter = scrollHeight / 2;
-	    var scrollCurrent = scrollHeight;
-	    
-	    function step () {
-	        setTimeout(function() {
-	            if ( (toBeScrolledTo.offsetTop - window.pageYOffset) > 5) {
-					
-					scrollCurrent = scrollCurrent + scrollStep;
-					//scrollMargin = cosParameter - cosParameter * Math.cos( scrollCount * scrollStep );
-	                window.scrollTo( 0, ( scrollCurrent ) );
-					console.log(scrollCurrent);
-
-	                requestAnimationFrame(step);
-	            }
-	        }, 12 );
-	    }
-	    
-	    // boot...
-	    requestAnimationFrame(step);        
-	}
-
-	arrowScroll.addEventListener('click', function() {
-		//scrollToSmooth(1000);
-	});
-	
-</script>
 
 <?php require 'footer-landing.php'; ?>
