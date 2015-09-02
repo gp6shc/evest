@@ -3,3 +3,4 @@ wp-config.php
 .DS_Store
 config.codekit
 .com.apple.timemachine.supported
+logs/
