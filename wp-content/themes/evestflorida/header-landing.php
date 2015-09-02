@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,800|Roboto:300,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="<?= get_template_directory_uri(); ?>/css/landing-style.css">
-	<link rel="icon" type="image/png" href="<?php echo home_url(); ?>/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="<?= home_url(); ?>/favicon-32x32.png" sizes="32x32">
 </head>
 
 <body <?php body_class(); ?>>
