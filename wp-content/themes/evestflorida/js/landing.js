@@ -1,5 +1,5 @@
 // Detect request animation frame
-var scroll = window.requestAnimationFrame ||
+var rafScroll = window.requestAnimationFrame ||
              window.webkitRequestAnimationFrame ||
              window.mozRequestAnimationFrame ||
              window.msRequestAnimationFrame ||
@@ -21,7 +21,7 @@ function loop(){
     }
 
     // Recall the loop
-    scroll( loop );
+	rafScroll( loop );
 }
 
 // Call the loop for the first time
@@ -35,31 +35,25 @@ function scrollToSmooth() {
 	var toBeScrolledTo 		= document.getElementById('js-scrolled-to').offsetTop;		// How far the top of the destination element is from the top of the page
 	var scrollDistance		= toBeScrolledTo - initialPagePosition;						// How far the window needs to scroll to have the destination element at the top of the window
 	var scrollStep 			= Math.PI / (( scrollDistance / duration ) * 15);			// 
-	var numberOfSteps		= scrollDistance / scrollStep;								// Debug info: how many steps it should take
 	var scrollCurrent 		= initialPagePosition;										// holds the current scroll position of the window to be added to incrementally each loop
 	var scrollCount 		= 0;														// Count for each iteration of the loop
 	var cosParameter		= scrollDistance / 2;										//
-
-	console.log("Step:",scrollStep);
-	console.log("Steps:",numberOfSteps);
-	console.log("Distance:",scrollDistance);
 	
-	function step () {
-		scrollCurrent = cosParameter - cosParameter * Math.cos( scrollCount * scrollStep )
-		console.log("Current Scroll",initialPagePosition + scrollCurrent);
+	function step() {
+		scrollCurrent = cosParameter - cosParameter * Math.cos( scrollCount * scrollStep );
 		window.scrollTo( 0, ( initialPagePosition + scrollCurrent ));
 		scrollCount++;
 		
 		
 		if ( (initialPagePosition + scrollCurrent + (scrollStep * 6)) < toBeScrolledTo) {
-			requestAnimationFrame(step);		
+			requestAnimationFrame(step);
 		}else{
 			window.scrollTo( 0, toBeScrolledTo );			
 		}
 	}
     
     // boot...
-    requestAnimationFrame(step);        
+	requestAnimationFrame(step);
 }
 
 arrowScroll.addEventListener('click', scrollToSmooth);
